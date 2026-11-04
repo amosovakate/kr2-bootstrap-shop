@@ -1,15 +1,16 @@
-const scrollTopButton = document.querySelector(".scroll-top");
+(() => {
+  const btn = document.querySelector('.scroll-top');
+  if (!btn) return;
 
-// показываем кнопку, когда страницу прокрутили больше чем на 300px
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    scrollTopButton.classList.add("scroll-top--visible");
-  } else {
-    scrollTopButton.classList.remove("scroll-top--visible");
-  }
-});
+  const toggle = () => {
+    if (window.scrollY > 400) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  };
 
-// по клику возвращаемся наверх
-scrollTopButton.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();

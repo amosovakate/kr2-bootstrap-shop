@@ -1,146 +1,17 @@
-<!DOCTYPE html>
-<html lang = "ru">
-<head>
-    <meta charset = "UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Учебный интернет-магазин">
-    <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-    <meta property="og:image" content="https://amosovakate.github.io/kr2-bootstrap-shop/images/preview.png">
-    <title>Учебный интернет-магазин</title> 
-    <link rel="stylesheet" href="css/custom.css">
-    <script src="js/main.js" defer></script>
-</head>
-<body>
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
-
-      <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="site-nav__list">
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html">Главная</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="catalog.html">Каталог</a>
-          </li>
-          <li class="site-nav__item">
-              <a class="site-nav__link" href="product.html">Карточки товаров</a>   
-          </li>
-          <li class="site-nav__item">
-              <a class="site-nav__link" href="reviews.html">Отзывы</a>   
-          </li>
-          <li class="site-nav__item">
-              <a class="site-nav__link site-nav__link--active" href="order.html" aria-current="page">Заявка</a> 
-          </li> 
-          <li class="site-nav__item">
-              <a class="site-nav__link" href="questions.html">Часто задаваемые вопросы</a>   
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="contacts.html">Контакты</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 <main>
   <div class="container">
-    
-    <!-- Хлебные крошки -->
-    <nav class="breadcrumbs">
-      <a href="#" class="breadcrumbs__link">Главная</a> / 
-      <span class="breadcrumbs__current">Заявка</span>
-    </nav>
+    <nav class="breadcrumbs"><a href="index.html" class="breadcrumbs__link">Главная</a> / <span>Запись</span></nav>
+    <h1 class="page-title">Запись на мастер-класс</h1>
+    <p class="page-subtitle">Заполните форму — мы свяжемся для подтверждения.</p>
 
-    <!-- Заголовок -->
-    <h1 class="page-title">Оформление заявки</h1>
-    <p class="page-subtitle">Заполните форму заявки. После отправки мы свяжемся с вами для подтверждения заказа или консультации.</p>
-
-    <!-- Форма -->
     <form class="order-form" action="#" method="POST">
-      
-      <!-- Поле: Имя -->
-      <div class="order-form__field">
-        <label class="order-form__label" for="name">Имя</label>
-        <input class="order-form__input" type="text" id="name" name="name" placeholder="Введите ваше имя" required>
-      </div>
-
-      <!-- Поле: Email -->
-      <div class="order-form__field">
-        <label class="order-form__label" for="email">E-mail</label>
-        <input class="order-form__input" type="email" id="email" name="email" placeholder="example@mail.ru" required>
-      </div>
-
-      <!-- Поле: Телефон -->
-      <div class="order-form__field">
-        <label class="order-form__label" for="phone">Телефон</label>
-        <input class="order-form__input" type="tel" id="phone" name="phone" placeholder="+7 (900) 000-00-00">
-        <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
-      </div>
-
-      <!-- Поле: Дата связи -->
-      <div class="order-form__field">
-        <label class="order-form__label" for="date">Дата связи</label>
-        <input class="order-form__input" type="date" id="date" name="date">
-      </div>
-
-      <!-- Поле: Тема (Select) -->
-      <div class="order-form__field">
-        <label class="order-form__label" for="topic">Товар</label>
-        <select class="order-form__select" id="topic" name="topic">
-          <option value="" disabled selected>Выберите товар</option>
-          <option value="order">Клавиатура</option>
-          <option value="consult">Мышка</option>
-          <option value="support">Зарядное устройство</option>
-          <option value="support">Наушники</option>
-          <option value="support">Веб-камера</option>
-          <option value="support">Коврик для мыши</option>
-        </select>
-      </div>
-
-      <!-- Поле: Комментарий -->
-      <div class="order-form__field">
-        <label class="order-form__label" for="comment">Комментарий</label>
-        <textarea class="order-form__textarea" id="comment" name="comment" rows="4" placeholder="Укажите дополнительную информацию"></textarea>
-      </div>
-
-      <!-- Чекбокс согласия -->
-      <div class="order-form__field order-form__field--checkbox">
-        <label class="order-form__checkbox-label">
-          <input class="order-form__checkbox" type="checkbox" name="agreement" required>
-          Я согласен на обработку данных
-        </label>
-      </div>
-
-      <!-- Кнопки -->
+      <!-- поля как в модальном окне index.html:
+           name, email, phone (pattern), date, topic (select 6 МК),
+           guests (number 1-6), comment, agreement -->
       <div class="order-form__actions">
         <button type="reset" class="button button--secondary">Очистить</button>
-        <button type="submit" class="button button--primary">Отправить заявку</button>
+        <button type="submit" class="button button--primary">Записаться</button>
       </div>
-
     </form>
-
   </div>
 </main>
-   
-
-
-  
-        <footer id="contacts">
-            <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-            <p>Дисциплина: Фронтенд и бэкенд разработка</p>
-        </footer>
-
-    </main>
-
-    <button class="scroll-top" type="button" aria-label="Наверх">↑</button>
-    <script src="js/scroll-top.js"></script>
-</body>
-</html>
-

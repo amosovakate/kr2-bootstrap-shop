@@ -1,295 +1,439 @@
 <!DOCTYPE html>
-<html lang = "ru">
+<html lang="ru">
 <head>
-    <meta charset = "UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Учебный интернет-магазин">
-    <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-    <meta property="og:image" content="https://amosovakate.github.io/kr2-bootstrap-shop/images/preview.png">
-    <title>Учебный интернет-магазин</title> 
-    <link rel="stylesheet" href="css/custom.css">
-    <script src="js/main.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Творческая студия «Фактура» — мастер-классы по созданию объёмных картин текстурной пастой, мастихином и поталью.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Фактура — студия объёмных картин">
+  <meta property="og:description" content="Мастер-классы по текстурной живописи. Техники, материалы, галерея работ и запись онлайн.">
+  <meta property="og:image" content="https://amosovakate.github.io/kr2-bootstrap-shop/images/preview.png">
+  <title>Фактура — студия объёмных картин</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
+
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
-
+      <a class="site-header__logo" href="index.html">Фактура</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li class="site-nav__item">
-            <a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="catalog.html">Каталог</a>
-          </li>
-          <li class="site-nav__item">
-              <a class="site-nav__link" href="product.html">Карточки товаров</a>   
-          </li>
-          <li class="site-nav__item">
-              <a class="site-nav__link" href="reviews.html">Отзывы</a>   
-          </li>
-          <li class="site-nav__item">
-              <a class="site-nav__link" href="order.html">Заявка</a> 
-          </li> 
-          <li class="site-nav__item">
-              <a class="site-nav__link" href="questions.html">Часто задаваемые вопросы</a>   
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="contacts.html">Контакты</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
-          </li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Мастер-классы</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#techniques">Техники и материалы</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="#gallery">Галерея</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="reviews.html">Отзывы</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="order.html">Запись</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="questions.html">Вопросы</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-        <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+  <!-- Модальное окно записи -->
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 class="order-dialog__title" id="order-dialog-title">Запись на мастер-класс</h2>
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="selected-product" type="hidden">
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-name">Имя</label>
+        <input class="order-form__input" id="order-name" name="name" type="text" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
+      </div>
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-email">E-mail</label>
+        <input class="order-form__input" id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required>
+      </div>
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-phone">Телефон</label>
+        <input class="order-form__input" id="order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
+        <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
+      </div>
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-date">Дата занятия</label>
+        <input class="order-form__input" id="order-date" name="date" type="date" required>
+      </div>
+      <div class="order-form__field">
+        <label class="order-form__label" for="topic">Мастер-класс</label>
+        <select class="order-form__select" id="topic" name="topic" required>
+          <option value="" disabled selected>Выберите мастер-класс</option>
+          <option value="flower">Объёмный цветок текстурной пастой</option>
+          <option value="abstract">Абстракция мастихином</option>
+          <option value="sea">Морской рельеф с песком</option>
+          <option value="gilding">Золотая поталь</option>
+          <option value="minimal">Минимализм: текстура и монохром</option>
+          <option value="landscape">Фактурный пейзаж</option>
+        </select>
+      </div>
+      <div class="order-form__field">
+        <label class="order-form__label" for="guests">Количество человек</label>
+        <input class="order-form__input" id="guests" name="guests" type="number" min="1" max="6" value="1" required>
+      </div>
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-comment">Комментарий</label>
+        <textarea class="order-form__textarea" id="order-comment" name="comment" rows="3" placeholder="Пожелания, уровень подготовки, аллергии на материалы"></textarea>
+      </div>
+      <div class="order-form__field order-form__field--checkbox">
+        <input class="order-form__checkbox" id="order-agreement" name="agreement" type="checkbox" required>
+        <label class="order-form__label" for="order-agreement">Я согласен на обработку данных</label>
+      </div>
+      <div class="order-form__actions">
+        <button class="button button--primary" type="submit">Отправить заявку</button>
+        <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+      </div>
+    </form>
+  </dialog>
 
-        <form class="order-form" id="order-form" action="#" method="post" novalidate>
-        <input id="selected-product" name="selected-product" type="hidden">
+  <p class="success-message" id="success-message" hidden>Заявка успешно отправлена! Мы свяжемся с вами.</p>
 
-        <div class="order-form__field">
-            <label class="order-form__label" for="order-name">Имя</label>
-            <input
-            class="order-form__input"
-            id="order-name"
-            name="name"
-            type="text"
-            placeholder="Введите ваше имя"
-            minlength="2"
-            autocomplete="given-name"
-            required
-            >
-        </div>
-
-        <div class="order-form__field">
-            <label class="order-form__label" for="order-email">E-mail</label>
-            <input
-            class="order-form__input"
-            id="order-email"
-            name="email"
-            type="email"
-            placeholder="example@mail.ru"
-            autocomplete="email"
-            required
-            >
-        </div>
-
-        <div class="order-form__field">
-            <label class="order-form__label" for="order-phone">Телефон</label>
-            <input
-            class="order-form__input"
-            id="order-phone"
-            name="phone"
-            type="tel"
-            inputmode="tel"
-            placeholder="+7 (900) 000-00-00"
-            pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
-            required
-            >
-            <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
-        </div>
-
-        <div class="order-form__field">
-            <label class="order-form__label" for="order-date">Дата связи</label>
-            <input
-            class="order-form__input"
-            id="order-date"
-            name="date"
-            type="date"
-            >
-        </div>
-
-        <div class="order-form__field">
-            <label class="order-form__label" for="topic">Товар</label>
-            <select class="order-form__select" id="topic" name="topic">
-            <option value="" disabled selected>Выберите товар</option>
-            <option value="order">Клавиатура</option>
-            <option value="consult">Мышка</option>
-            <option value="support">Зарядное устройство</option>
-            <option value="support">Наушники</option>
-            <option value="support">Веб-камера</option>
-            <option value="support">Коврик для мыши</option>
-            </select>
-        </div>
-
-        <div class="order-form__field">
-            <label class="order-form__label" for="order-comment">Комментарий</label>
-            <textarea
-            class="order-form__textarea"
-            id="order-comment"
-            name="comment"
-            rows="4"
-            placeholder="Укажите дополнительную информацию"
-            ></textarea>
-        </div>
-
-        <div class="order-form__field order-form__field--checkbox">
-            <label class="order-form__label">
-            <input
-                class="order-form__checkbox"
-                id="order-agreement"
-                name="agreement"
-                type="checkbox"
-                required
-            >
-            Я согласен на обработку данных
-            </label>
-        </div>
-
-
-        <div class="order-form__actions">
-            <button class="button button--primary" type="submit">
-            Отправить заявку
-
-        <button class="button button--secondary" type="button" id="close-order-dialog">
-        Закрыть
-        </button>
-        </div>
-        </form>
-    </dialog>
-
-    <p class="success-message" id="success-message" hidden>
-    Форма успешно отправлена!
-    </p>
-
-
-    <main>
-        <!-- Основное содержимое страницы -->
-        <section class="hero">
-            <h1>Учебный интернет-магазин</h1>
-            <p>
-                Это стартовая страница учебного frontend-проекта.
-                В дальнейшем на её основе будет разработан многостраничный сайт
-                интернет-магазина или каталога услуг.
-            </p>
-            <a class="button" href="#popular">Перейти к товарам</a>
-        </section>
-
-        <section class="section" id="advantages">
-            <h2>Преимущества проекта</h2>
-
-            <ul class="advantages-list">
-                <li>понятная HTML-структура;</li>
-                <li>семантические блоки страницы;</li>
-                <li>подключение внешнего CSS-файла;</li>
-                <li>подготовка к разработке многостраничного сайта.</li>
-            </ul>
-
-        </section>
-    <section class="section" id="popular">
-    <h2>Популярные товары</h2>
-
-    <div class="products-grid">
-        
-        <!-- Товар 1: Клавиатура -->
-        <article class="product-card product-card--featured">
-        <div class="product-card__image-wrapper" style="background-color: #e3f2fd;">
-            <img src="images/pic1.png" alt="Клавиатура" class="product-card__image">
-        </div>
-        <h3 class="product-card__title">Клавиатура</h3>
-        <p class="product-card__description">Механическая клавиатура с подсветкой и тихими переключателями. Идеальна для работы и учебы.</p>
-        <p class="product-card__price">Цена: 3500 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Клавиатура">
-            Заказать
-        </button>
-        </article>
-
-        <!-- Товар 2: Мышка -->
-        <article class="product-card product-card--featured">
-        <div class="product-card__image-wrapper" style="background-color: #f3e5f5;">
-            <img src="images/pic2.png" alt="Мышка" class="product-card__image">
-        </div>
-        <h3 class="product-card__title">Мышка</h3>
-        <p class="product-card__description">Беспроводная оптическая мышь с регулировкой чувствительности. Эргономичный корпус.</p>
-        <p class="product-card__price">Цена: 1200 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Мышка">
-            Заказать
-        </button>
-        </article>
-
-        <!-- Товар 3: Зарядное устройство -->
-        <article class="product-card product-card--featured">
-        <div class="product-card__image-wrapper" style="background-color: #e8f5e9;">
-            <img src="images/pic3.png" alt="Зарядное устройство" class="product-card__image">
-        </div>
-        <h3 class="product-card__title">Зарядное устройство для ноутбука</h3>
-        <p class="product-card__description">Компактный блок питания 65 Вт с защитой от перегрева. Подходит для большинства ноутбуков.</p>
-        <p class="product-card__price">Цена: 2800 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Зарядное устройство">
-            Заказать
-        </button>
-        </article>
-
-        <!-- Товар 4: Наушники -->
-        <article class="product-card product-card--featured">
-        <div class="product-card__image-wrapper" style="background-color: #e8eaf6;">
-            <img src="images/pic4.png" alt="Наушники" class="product-card__image">
-        </div>
-        <h3 class="product-card__title">Наушники с микрофоном</h3>
-        <p class="product-card__description">Накладные наушники с шумоподавляющим микрофоном. Подходят для учёбы, звонков и прослушивания музыки.</p>
-        <p class="product-card__price">Цена: 3200 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Наушники">
-            Заказать
-        </button>
-        </article>
-
-        <!-- Товар 5: Веб-камера -->
-        <article class="product-card product-card--featured">
-        <div class="product-card__image-wrapper" style="background-color: #e0f7fa;">
-            <img src="images/pic5.png" alt="Веб-камера" class="product-card__image">
-        </div>
-        <h3 class="product-card__title">Веб-камера Full HD</h3>
-        <p class="product-card__description">Веб-камера с разрешением 1080p и встроенным микрофоном. Идеальна для онлайн-занятий и видеозвонков.</p>
-        <p class="product-card__price">Цена: 2400 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Веб-камера">
-            Заказать
-        </button>
-        </article>
-
-        <!-- Товар 6: Коврик для мыши -->
-        <article class="product-card product-card--featured">
-        <div class="product-card__image-wrapper" style="background-color: #fce4ec;">
-            <img src="images/pic6.png" alt="Коврик для мыши" class="product-card__image">
-        </div>
-        <h3 class="product-card__title">Коврик для мыши</h3>
-        <p class="product-card__description">Большой тканевый коврик с прошитыми краями. Не скользит и защищает стол от царапин.</p>
-        <p class="product-card__price">Цена: 600 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Коврик для мыши">
-            Заказать
-        </button>
-        </article>
-
-    </div>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="hero__title">Объёмные картины,<br>созданные вашими руками</h1>
+      <p class="hero__text">
+        Студия «Фактура» — это мастер-классы по текстурной живописи. Мы научим работать
+        с текстурной пастой, мастихином, поталью и акрилом. Все материалы включены,
+        готовую картину забираете домой.
+      </p>
+      <a class="button button--primary" href="#popular">Смотреть мастер-классы</a>
     </section>
 
+    <!-- ПРЕИМУЩЕСТВА -->
+    <section class="section" id="advantages">
+      <h2>Почему «Фактура»</h2>
+      <ul class="advantages-list">
+        <li>Авторские техники и уникальные приёмы работы с пастой</li>
+        <li>Все материалы включены в стоимость</li>
+        <li>Малые группы — до 6 человек</li>
+        <li>Готовую картину забираете сразу после занятия</li>
+      </ul>
+    </section>
 
+    <!-- ПОПУЛЯРНЫЕ МАСТЕР-КЛАССЫ -->
+    <section class="section" id="popular">
+      <h2>Популярные мастер-классы</h2>
+      <div class="products-grid">
 
-        <aside class="aside-info">
-            <h2>Информация для студентов</h2>
-            <p>
-                На следующих практических занятиях этот проект будет расширяться:
-                появятся формы, модальное окно, дополнительные страницы, Flex/Grid,
-                БЭМ-структура и адаптивная версия сайта.
-            </p>
-        </aside>
+        <!-- МК 1 -->
+        <article class="product-card">
+          <span class="product-card__badge product-card__badge--hit">Хит</span>
+          <div class="product-card__image-wrapper">
+            <img src="images/pic1.png" alt="Мастер-класс «Объёмный цветок текстурной пастой»" class="product-card__image">
+          </div>
+          <h3 class="product-card__title">Объёмный цветок текстурной пастой</h3>
+          <p class="product-card__description">Создадим рельефный 3D-цветок мастихином, добавим поталь для акцента.</p>
+          <p class="product-card__meta">Для начинающих · 3 часа</p>
+          <p class="product-card__price">2 500 ₽</p>
+          <div class="product-card__actions">
+            <button class="button button--primary" type="button" data-product="Объёмный цветок текстурной пастой">Записаться</button>
+          </div>
+        </article>
 
-        <footer id="contacts">
-            <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-            <p>Дисциплина: Фронтенд и бэкенд разработка</p>
-        </footer>
+        <!-- МК 2 -->
+        <article class="product-card">
+           <div class="product-card__image-wrapper">
+            <img src="images/pic2.png" alt="Мастер-класс «Абстракция мастихином»" class="product-card__image">
+          </div>
+          <h3 class="product-card__title">Абстракция мастихином</h3>
+          <p class="product-card__description">Свободные мазки, работа с цветом и фактурой. Идеально для первого опыта.</p>
+          <p class="product-card__meta">Для начинающих · 2,5 часа</p>
+          <p class="product-card__price">2 200 ₽</p>
+          <div class="product-card__actions">
+            <button class="button button--primary" type="button" data-product="Абстракция мастихином">Записаться</button>
+          </div>
+        </article>
 
-    </main>
+        <!-- МК 3 -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img src="images/pic3.png" alt="Мастер-класс «Морской рельеф с песком»" class="product-card__image">
+          </div>
+          <h3 class="product-card__title">Морской рельеф с песком</h3>
+          <p class="product-card__description">Текстурная паста + песок + акрил: создаём объёмную морскую гладь.</p>
+          <p class="product-card__meta">Средний уровень · 3 часа</p>
+          <p class="product-card__price">2 800 ₽</p>
+          <div class="product-card__actions">
+            <button class="button button--primary" type="button" data-product="Морской рельеф с песком">Записаться</button>
+          </div>
+        </article>
 
-    <button class="scroll-top" type="button" aria-label="Наверх">↑</button>
+        <!-- МК 4 -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img src="images/pic4.png" alt="Мастер-класс «Золотая поталь»" class="product-card__image">
+          </div>
+          <h3 class="product-card__title">Золотая поталь</h3>
+          <p class="product-card__description">Интерьерная картина с листовой поталью и глубокой фактурой.</p>
+          <p class="product-card__meta">Средний уровень · 3,5 часа</p>
+          <p class="product-card__price">3 200 ₽</p>
+          <div class="product-card__actions">
+            <button class="button button--primary" type="button" data-product="Золотая поталь">Записаться</button>
+          </div>
+        </article>
+
+        <!-- МК 5 -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img src="images/pic5.png" alt="Мастер-класс «Минимализм: текстура и монохром»" class="product-card__image">
+          </div>
+          <h3 class="product-card__title">Минимализм: текстура и монохром</h3>
+          <p class="product-card__description">Сдержанная палитра, игра света и тени на рельефе.</p>
+          <p class="product-card__meta">Для начинающих · 2 часа</p>
+          <p class="product-card__price">1 900 ₽</p>
+          <div class="product-card__actions">
+            <button class="button button--primary" type="button" data-product="Минимализм: текстура и монохром">Записаться</button>
+          </div>
+        </article>
+
+        <!-- МК 6 -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img src="images/pic6.png" alt="Мастер-класс «Фактурный пейзаж»" class="product-card__image">
+          </div>
+          <h3 class="product-card__title">Фактурный пейзаж</h3>
+          <p class="product-card__description">Объёмные горы, небо и вода — комплексная работа с пастой и мастихином.</p>
+          <p class="product-card__meta">Продвинутый · 4 часа</p>
+          <p class="product-card__price">3 000 ₽</p>
+          <div class="product-card__actions">
+            <button class="button button--primary" type="button" data-product="Фактурный пейзаж">Записаться</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ТЕХНИКИ И МАТЕРИАЛЫ -->
+    <section class="section" id="techniques">
+      <h2>Техники и материалы</h2>
+      <div class="techniques-grid">
+        <div class="technique-item"><span class="technique-item__icon">🖌️</span><h3 class="technique-item__title">Текстурная паста</h3><p class="technique-item__text">Основа объёма: держит форму, сохнет 24 ч.</p></div>
+        <div class="technique-item"><span class="technique-item__icon">🔪</span><h3 class="technique-item__title">Мастихин</h3><p class="technique-item__text">Создаёт рельефные мазки и срезы.</p></div>
+        <div class="technique-item"><span class="technique-item__icon">✨</span><h3 class="technique-item__title">Поталь</h3><p class="technique-item__text">Золотые и серебряные акценты.</p></div>
+        <div class="technique-item"><span class="technique-item__icon">🎨</span><h3 class="technique-item__title">Акрил</h3><p class="technique-item__text">Цвет и тонировка фактуры.</p></div>
+        <div class="technique-item"><span class="technique-item__icon">🏖️</span><h3 class="technique-item__title">Песок</h3><p class="technique-item__text">Дополнительная зернистость.</p></div>
+      </div>
+    </section>
+
+    <!-- ГАЛЕРЕЯ -->
+    <section class="section" id="gallery">
+      <h2>Галерея работ</h2>
+      <div class="gallery-grid">
+        <figure class="gallery-item">
+        <img src="images/pic7.png" alt="Картина «Цветок», текстурная паста" class="gallery-item__img">
+        <figcaption>«Цветок», текстурная паста — Мария К.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/pic8.png" alt="Картина «Море», паста + песок" class="gallery-item__img">
+          <figcaption>«Море», паста + песок — Алексей М.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/pic9.png" alt="Картина «Минимализм», интерьерная" class="gallery-item__img">
+          <figcaption>«Минимализм», интерьерная — Ольга В.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/pic10.png" alt="Картина «Горы», мастихин" class="gallery-item__img">
+          <figcaption>«Горы», мастихин — Дмитрий С.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ПРЕПОДАВАТЕЛИ -->
+    <section class="section" id="teachers">
+      <h2>Преподаватели</h2>
+      <div class="teachers-grid">
+        <article class="teacher-card"><div class="teacher-card__avatar">👩‍🎨</div><h3 class="teacher-card__name">Анна Соколова</h3><p class="teacher-card__role">Текстурная живопись</p><p class="teacher-card__text">8 лет опыта, автор курса «Объём и свет»</p></article>
+        <article class="teacher-card"><div class="teacher-card__avatar">👨‍🎨</div><h3 class="teacher-card__name">Игорь Левин</h3><p class="teacher-card__role">Абстракция, мастихин</p><p class="teacher-card__text">Участник городских выставок, работает с крупным форматом</p></article>
+        <article class="teacher-card"><div class="teacher-card__avatar">🧑‍🎨</div><h3 class="teacher-card__name">Елена Морозова</h3><p class="teacher-card__role">Поталь и интерьерные работы</p><p class="teacher-card__text">Специалист по декоративным техникам</p></article>
+      </div>
+    </section>
+
+    <!-- РАСПИСАНИЕ -->
+    <section class="section" id="schedule">
+      <h2>Расписание занятий</h2>
+      <div class="table-wrapper">
+        <table class="schedule-table">
+          <thead>
+            <tr><th>Дата</th><th>Мастер-класс</th><th>Время</th><th>Стоимость</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>12 ноября</td><td>Объёмный цветок</td><td>18:00–21:00</td><td>2 500 ₽</td><td><button class="button button--secondary" data-product="Объёмный цветок текстурной пастой">Записаться</button></td></tr>
+            <tr><td>15 ноября</td><td>Абстракция мастихином</td><td>12:00–14:30</td><td>2 200 ₽</td><td><button class="button button--secondary" data-product="Абстракция мастихином">Записаться</button></td></tr>
+            <tr><td>19 ноября</td><td>Морской рельеф</td><td>18:00–21:00</td><td>2 800 ₽</td><td><button class="button button--secondary" data-product="Морской рельеф с песком">Записаться</button></td></tr>
+            <tr><td>23 ноября</td><td>Золотая поталь</td><td>11:00–14:30</td><td>3 200 ₽</td><td><button class="button button--secondary" data-product="Золотая поталь">Записаться</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- ОТЗЫВЫ (слайдер) -->
+    <section class="section rv" id="reviews" aria-labelledby="reviews-title">
+      <h2 class="rv__title" id="reviews-title">Отзывы учеников</h2>
+      <p class="rv__subtitle">Что говорят о наших мастер-классах</p>
+
+      <div class="rv-slider" id="rv-slider">
+        <div class="rv-track" tabindex="0" aria-label="Список отзывов">
+
+          <article class="rv-card">
+            <div class="rv-card__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="rv-card__text">«Золотая поталь превзошла все ожидания! Думал, будет сложно, но преподаватель всё разжевал. Теперь хочу записаться на пейзаж.»</p>
+            <div class="rv-card__footer">
+              <div class="rv-card__avatar" aria-hidden="true">Д</div>
+              <div>
+                <p class="rv-card__name">Дмитрий С.</p>
+                <p class="rv-card__role">Ученик</p>
+              </div>
+            </div>
+            <a class="rv-card__link" href="catalog.html">МК «Золотая поталь» →</a>
+          </article>
+
+          <article class="rv-card">
+            <div class="rv-card__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="rv-card__text">«Ходил на абстракцию мастихином. Очень расслабляет после рабочей недели. Атмосфера в студии уютная, пахнет краской. Ушёл с готовой картиной и отличным настроением.»</p>
+            <div class="rv-card__footer">
+              <div class="rv-card__avatar" aria-hidden="true">А</div>
+              <div>
+                <p class="rv-card__name">Алексей М.</p>
+                <p class="rv-card__role">Ученик</p>
+              </div>
+            </div>
+            <a class="rv-card__link" href="catalog.html">МК «Абстракция» →</a>
+          </article>
+
+          <article class="rv-card">
+            <div class="rv-card__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="rv-card__text">«Морской рельеф получился просто сказочным! Единственное, паста сохла чуть дольше, чем я думала, но результат того стоил. Очень понравилось работать с песком.»</p>
+            <div class="rv-card__footer">
+              <div class="rv-card__avatar" aria-hidden="true">О</div>
+              <div>
+                <p class="rv-card__name">Ольга В.</p>
+                <p class="rv-card__role">Ученица</p>
+              </div>
+            </div>
+            <a class="rv-card__link" href="catalog.html">МК «Морской рельеф» →</a>
+          </article>
+
+          <article class="rv-card">
+            <div class="rv-card__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="rv-card__text">«Пришла на «Объёмный цветок» совсем без опыта. Анна всё показала шаг за шагом, и картину я забрала домой в тот же день.»</p>
+            <div class="rv-card__footer">
+              <div class="rv-card__avatar" aria-hidden="true">М</div>
+              <div>
+                <p class="rv-card__name">Мария К.</p>
+                <p class="rv-card__role">Ученица</p>
+              </div>
+            </div>
+            <a class="rv-card__link" href="catalog.html">МК «Объёмный цветок» →</a>
+          </article>
+
+          <article class="rv-card">
+            <div class="rv-card__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="rv-card__text">«Минимализм — идеальный вариант для первого раза. Спокойная палитра, группа маленькая, внимание каждому. Картина теперь висит в гостиной.»</p>
+            <div class="rv-card__footer">
+              <div class="rv-card__avatar" aria-hidden="true">А</div>
+              <div>
+                <p class="rv-card__name">Анна С.</p>
+                <p class="rv-card__role">Ученица</p>
+              </div>
+            </div>
+            <a class="rv-card__link" href="catalog.html">МК «Минимализм» →</a>
+          </article>
+
+          <article class="rv-card">
+            <div class="rv-card__stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <p class="rv-card__text">«Фактурный пейзаж — самый сложный из моих мастер-классов, но и самый красивый результат. Мастихин оказался совсем не страшным.»</p>
+            <div class="rv-card__footer">
+              <div class="rv-card__avatar" aria-hidden="true">И</div>
+              <div>
+                <p class="rv-card__name">Ирина П.</p>
+                <p class="rv-card__role">Ученица</p>
+              </div>
+            </div>
+            <a class="rv-card__link" href="catalog.html">МК «Фактурный пейзаж» →</a>
+          </article>
+
+        </div>
+
+        <div class="rv-controls">
+          <button class="rv-btn rv-btn--prev" type="button" aria-label="Предыдущий отзыв">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="rv-dots" role="group" aria-label="Выбор отзыва"></div>
+          <button class="rv-btn rv-btn--next" type="button" aria-label="Следующий отзыв">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <!-- Колонка 1: Логотип и описание -->
+      <div class="footer-col">
+        <a href="index.html" class="footer-logo">Фактура</a>
+        <p class="footer-desc">
+          Творческая студия объёмных картин. Мастер-классы по текстурной живописи, работа с пастой, мастихином и поталью.
+        </p>
+      </div>
+
+      <!-- Колонка 2: Навигация -->
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <ul class="footer-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Мастер-классы</a></li>
+          <li><a href="index.html#gallery">Галерея</a></li>
+          <li><a href="reviews.html">Отзывы</a></li>
+          <li><a href="order.html">Запись</a></li>
+        </ul>
+      </div>
+
+      <!-- Колонка 3: Контакты -->
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <div class="footer-contact-item">
+          <a href="mailto:info@faktura.ru">info@faktura.ru</a>
+        </div>
+        <div class="footer-contact-item">
+          <a href="tel:+79000000000">+7 (900) 000-00-00</a>
+        </div>
+        <div class="footer-contact-item">
+          г. Москва, ул. Творческая, 15
+        </div>
+      </div>
+
+      <!-- Колонка 4: Режим работы -->
+      <div class="footer-col">
+        <h4>Время работы</h4>
+        <div class="footer-contact-item">Ежедневно</div>
+        <div class="footer-contact-item">10:00 – 21:00</div>
+        <div class="footer-contact-item" style="margin-top: 1rem;">
+          <a href="contacts.html" style="color: var(--facture-accent); text-decoration: underline;">Как добраться →</a>
+        </div>
+      </div>
+
+    </div>
+
+      <!-- Нижняя строка с копирайтом -->
+      <div class="footer-bottom">
+        <p style="margin: 0;">&copy; 2026 Студия «Фактура». Учебный проект. Все права защищены.</p>
+      </div>
+    </footer>
+
+    <!-- Скрипт для кнопки наверх -->
     <script src="js/scroll-top.js"></script>
-</body>
+
+    <!-- Скрипт слайдера отзывов -->
+    <script src="js/reviews-slider.js"></script>
+
+  </body>
 </html>
