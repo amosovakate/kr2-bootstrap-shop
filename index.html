@@ -41,58 +41,105 @@
 
   <!-- Модальное окно записи -->
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-    <h2 class="order-dialog__title" id="order-dialog-title">Запись на мастер-класс</h2>
-    <form class="order-form" id="order-form" action="#" method="post" novalidate>
-      <input id="selected-product" name="selected-product" type="hidden">
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-name">Имя</label>
-        <input class="order-form__input" id="order-name" name="name" type="text" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
-      </div>
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-email">E-mail</label>
-        <input class="order-form__input" id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required>
-      </div>
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-phone">Телефон</label>
-        <input class="order-form__input" id="order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
-        <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
-      </div>
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-date">Дата занятия</label>
-        <input class="order-form__input" id="order-date" name="date" type="date" required>
-      </div>
-      <div class="order-form__field">
-        <label class="order-form__label" for="topic">Мастер-класс</label>
-        <select class="order-form__select" id="topic" name="topic" required>
-          <option value="" disabled selected>Выберите мастер-класс</option>
-          <option value="flower">Объёмный цветок текстурной пастой</option>
-          <option value="abstract">Абстракция мастихином</option>
-          <option value="sea">Морской рельеф с песком</option>
-          <option value="gilding">Золотая поталь</option>
-          <option value="minimal">Минимализм: текстура и монохром</option>
-          <option value="landscape">Фактурный пейзаж</option>
-        </select>
-      </div>
-      <div class="order-form__field">
-        <label class="order-form__label" for="guests">Количество человек</label>
-        <input class="order-form__input" id="guests" name="guests" type="number" min="1" max="6" value="1" required>
-      </div>
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-comment">Комментарий</label>
-        <textarea class="order-form__textarea" id="order-comment" name="comment" rows="3" placeholder="Пожелания, уровень подготовки, аллергии на материалы"></textarea>
-      </div>
-      <div class="order-form__field order-form__field--checkbox">
-        <input class="order-form__checkbox" id="order-agreement" name="agreement" type="checkbox" required>
-        <label class="order-form__label" for="order-agreement">Я согласен на обработку данных</label>
-      </div>
-      <div class="order-form__actions">
-        <button class="button button--primary" type="submit">Отправить заявку</button>
-        <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
-      </div>
-    </form>
+
+    <div class="order-dialog__layout">
+
+      <!-- Левая панель -->
+      <aside class="order-dialog__aside">
+        <img class="order-dialog__img" src="images/pic52.png" alt="">
+        <div class="order-dialog__aside-body">
+          <p class="hero__eyebrow">Запись онлайн</p>
+          <h2 class="order-dialog__title" id="order-dialog-title">Запишитесь на мастер-класс</h2>
+          <ul class="order-dialog__perks">
+            <li>Материалы включены</li>
+            <li>Группы до 6 человек</li>
+            <li>Картина — домой в тот же день</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Форма -->
+      <form class="order-form" id="order-form" action="#" method="post" novalidate>
+        <input id="selected-product" name="selected-product" type="hidden">
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя</label>
+          <input class="order-form__input" id="order-name" name="name" type="text" placeholder="Как вас зовут" minlength="2" autocomplete="given-name" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-phone">Телефон</label>
+          <input class="order-form__input" id="order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
+        </div>
+
+        <div class="order-form__field order-form__field--wide">
+          <label class="order-form__label" for="order-email">E-mail</label>
+          <input class="order-form__input" id="order-email" name="email" type="email" placeholder="example@mail.ru" autocomplete="email" required>
+        </div>
+
+        <!-- Мастер-класс: чипы строит JS, select спрятан -->
+        <div class="order-form__field order-form__field--wide">
+          <span class="order-form__label" id="topic-label">Мастер-класс</span>
+          <div class="mk-chips" id="mk-chips" role="radiogroup" aria-labelledby="topic-label"></div>
+
+          <select class="visually-hidden" id="topic" name="topic" required tabindex="-1" aria-hidden="true">
+            <option value="" disabled selected>Выберите мастер-класс</option>
+            <option value="newyear">Новогодний шар</option>
+            <option value="flower">Объёмный цветок текстурной пастой</option>
+            <option value="abstract">Абстракция мастихином</option>
+            <option value="sea">Морской рельеф с песком</option>
+            <option value="gilding">Золотая поталь</option>
+            <option value="minimal">Минимализм: текстура и монохром</option>
+            <option value="landscape">Фактурный пейзаж</option>
+            <option value="desert">Пустыня и дюны</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-date">Дата занятия</label>
+          <input class="order-form__input" id="order-date" name="date" type="date" required>
+        </div>
+
+        <!-- Счётчик -->
+        <div class="order-form__field">
+          <label class="order-form__label" for="guests">Количество человек</label>
+          <div class="counter">
+            <button class="counter__btn" type="button" data-step="-1" aria-label="Меньше">−</button>
+            <input class="counter__input" id="guests" name="guests" type="number" min="1" max="6" value="1" readonly required>
+            <button class="counter__btn" type="button" data-step="1" aria-label="Больше">+</button>
+          </div>
+        </div>
+
+        <div class="order-form__field order-form__field--wide">
+          <label class="order-form__label" for="order-comment">Комментарий</label>
+          <textarea class="order-form__textarea" id="order-comment" name="comment" rows="3" maxlength="300" placeholder="Пожелания, уровень подготовки, аллергии на материалы"></textarea>
+          <small class="order-form__counter"><span id="comment-count">0</span> / 300</small>
+        </div>
+
+        <div class="order-form__field order-form__field--checkbox order-form__field--wide">
+          <input class="order-form__checkbox" id="order-agreement" name="agreement" type="checkbox" required>
+          <label class="order-form__label" for="order-agreement">Я согласен на обработку данных</label>
+        </div>
+
+        <div class="order-form__actions order-form__field--wide">
+          <button class="button button--primary" type="submit">Отправить заявку</button>
+          <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+        </div>
+      </form>
+
+    </div>
+
+    <!-- Панель успеха -->
+    <div class="order-success">
+      <span class="order-success__star">✦</span>
+      <h2 class="order-success__title">Спасибо за заявку!</h2>
+      <p class="order-success__text">Мы свяжемся с вами в ближайшее время и подтвердим запись.</p>
+      <button class="button button--primary" type="button" id="success-close">Отлично</button>
+    </div>
+
   </dialog>
 
-  <p class="success-message" id="success-message" hidden>Заявка успешно отправлена! Мы свяжемся с вами.</p>
+<p class="success-message" id="success-message" hidden>Заявка успешно отправлена! Мы свяжемся с вами.</p>
 
 
 
@@ -158,7 +205,8 @@
   <main>
     <!-- HERO -->
     <section class="hero">
-      <div class="hero__content">
+      <div class="row align-items-center g-4 w-100">
+      <div class="col-12 col-lg-8 hero__content">
         <h1 class="hero__title">Объёмные картины,<br><em>созданные вашими руками</em></h1>
         <p class="hero__text">
           Студия «Фактура» — это мастер-классы по текстурной живописи. <br>Мы научим работать
@@ -180,20 +228,22 @@
         </ul>
       </div>
 
+      <div class="col-12 col-lg-4 d-flex justify-content-center">
       <div class="hero__visual">
         <img class="hero__image" src="images/pic67.png" alt="Объёмная картина с цветами из текстурной пасты">
         <div class="hero__note">Картина — <em>домой в тот же день</em></div>
       </div>
+      </div>
+      </div>
     </section>
 
-
     <!-- ПОПУЛЯРНЫЕ МАСТЕР-КЛАССЫ -->
-    <section class="section" id="popular">
+    <section class="section container" id="popular">
       <h2>Популярные мастер-классы</h2>
-      <div class="products-grid">
+      <div class="row g-4">
 
         <!-- МК: Новогодний шар -->
-        <article class="product-card">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"><article class="product-card h-100">
           <span class="product-card__badge product-card__badge--ny">❄ К Новому году</span>
           <div class="product-card__image-wrapper">
             <img src="images/pic8.png" alt="Мастер-класс «Новогодний шар»" class="product-card__image">
@@ -205,10 +255,10 @@
           <div class="product-card__actions">
             <button class="button button--primary" type="button" data-product="Новогодний шар">Записаться</button>
           </div>
-        </article>
+        </article></div>
 
         <!-- МК 1 -->
-        <article class="product-card">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"><article class="product-card h-100">
           <span class="product-card__badge product-card__badge--hit">Хит</span>
           <div class="product-card__image-wrapper">
             <img src="images/pic1.png" alt="Мастер-класс «Объёмный цветок текстурной пастой»" class="product-card__image">
@@ -220,10 +270,10 @@
           <div class="product-card__actions">
             <button class="button button--primary" type="button" data-product="Объёмный цветок текстурной пастой">Записаться</button>
           </div>
-        </article>
+        </article></div>
 
         <!-- МК 2 -->
-        <article class="product-card">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"><article class="product-card h-100">
            <div class="product-card__image-wrapper">
             <img src="images/pic2.png" alt="Мастер-класс «Абстракция мастихином»" class="product-card__image">
           </div>
@@ -234,10 +284,10 @@
           <div class="product-card__actions">
             <button class="button button--primary" type="button" data-product="Абстракция мастихином">Записаться</button>
           </div>
-        </article>
+        </article></div>
 
         <!-- МК 3 -->
-        <article class="product-card">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"><article class="product-card h-100">
           <div class="product-card__image-wrapper">
             <img src="images/pic3.png" alt="Мастер-класс «Морской рельеф с песком»" class="product-card__image">
           </div>
@@ -248,12 +298,12 @@
           <div class="product-card__actions">
             <button class="button button--primary" type="button" data-product="Морской рельеф с песком">Записаться</button>
           </div>
-        </article>
+        </article></div>
 
         <!-- МК 4 -->
-        <article class="product-card">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"><article class="product-card h-100">
           <div class="product-card__image-wrapper">
-            <img src="images/pic20.png" alt="Мастер-класс «Золотая поталь»" class="product-card__image">
+            <img src="images/pic4.png" alt="Мастер-класс «Золотая поталь»" class="product-card__image">
           </div>
           <h3 class="product-card__title">Золотая поталь</h3>
           <p class="product-card__description">Интерьерная картина с листовой поталью и глубокой фактурой.</p>
@@ -262,10 +312,10 @@
           <div class="product-card__actions">
             <button class="button button--primary" type="button" data-product="Золотая поталь">Записаться</button>
           </div>
-        </article>
+        </article></div>
 
         <!-- МК 5 -->
-        <article class="product-card">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"><article class="product-card h-100">
           <div class="product-card__image-wrapper">
             <img src="images/pic5.jpg" alt="Мастер-класс «Минимализм: текстура и монохром»" class="product-card__image">
           </div>
@@ -276,10 +326,10 @@
           <div class="product-card__actions">
             <button class="button button--primary" type="button" data-product="Минимализм: текстура и монохром">Записаться</button>
           </div>
-        </article>
+        </article></div>
 
         <!-- МК 6 -->
-        <article class="product-card">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"><article class="product-card h-100">
           <div class="product-card__image-wrapper">
             <img src="images/pic6.png" alt="Мастер-класс «Фактурный пейзаж»" class="product-card__image">
           </div>
@@ -290,10 +340,10 @@
           <div class="product-card__actions">
             <button class="button button--primary" type="button" data-product="Фактурный пейзаж">Записаться</button>
           </div>
-        </article>
+        </article></div>
 
         <!-- МК: Пустыня и дюны -->
-        <article class="product-card">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3"><article class="product-card h-100">
           <div class="product-card__image-wrapper">
             <img src="images/pic7.png" alt="Мастер-класс «Пустыня и дюны»" class="product-card__image">
           </div>
@@ -304,13 +354,13 @@
           <div class="product-card__actions">
             <button class="button button--primary" type="button" data-product="Пустыня и дюны">Записаться</button>
           </div>
-        </article>
+        </article></div>
 
       </div>
     </section>
 
     <!-- ТЕХНИКИ И МАТЕРИАЛЫ -->
-    <section class="section" id="techniques">
+    <section class="section container" id="techniques">
       <div class="section-head">
         <div>
           <p class="hero__eyebrow">Из чего рождается картина</p>
@@ -318,59 +368,59 @@
         </div>
       </div>
 
-      <div class="techniques-grid">
-        <article class="technique-item" tabindex="0">
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+        <div class="col"><article class="technique-item" tabindex="0">
           <img src="images/pic9.png" alt="" class="technique-item__img">
           <span class="technique-item__num">01</span>
           <div class="technique-item__body">
             <h3 class="technique-item__title">Текстурная паста</h3>
             <p class="technique-item__text">Основа объёма: держит форму, сохнет 24 часа</p>
           </div>
-        </article>
+        </article></div>
 
-        <article class="technique-item" tabindex="0">
+        <div class="col"><article class="technique-item" tabindex="0">
           <img src="images/pic10.png" alt="" class="technique-item__img">
           <span class="technique-item__num">02</span>
           <div class="technique-item__body">
             <h3 class="technique-item__title">Мастихин</h3>
             <p class="technique-item__text">Создаёт рельефные мазки и срезы</p>
           </div>
-        </article>
+        </article></div>
 
-        <article class="technique-item" tabindex="0">
+        <div class="col"><article class="technique-item" tabindex="0">
           <img src="images/pic11.png" alt="" class="technique-item__img">
           <span class="technique-item__num">03</span>
           <div class="technique-item__body">
             <h3 class="technique-item__title">Поталь</h3>
             <p class="technique-item__text">Золотые акценты</p>
           </div>
-        </article>
+        </article></div>
 
-        <article class="technique-item" tabindex="0">
+        <div class="col"><article class="technique-item" tabindex="0">
           <img src="images/pic12.png" alt="" class="technique-item__img">
           <span class="technique-item__num">04</span>
           <div class="technique-item__body">
             <h3 class="technique-item__title">Акрил</h3>
             <p class="technique-item__text">Цвет и тонировка фактуры</p>
           </div>
-        </article>
+        </article></div>
 
-        <article class="technique-item" tabindex="0">
+        <div class="col"><article class="technique-item" tabindex="0">
           <img src="images/pic13.png" alt="" class="technique-item__img">
           <span class="technique-item__num">05</span>
           <div class="technique-item__body">
             <h3 class="technique-item__title">Песок</h3>
             <p class="technique-item__text">Дополнительная зернистость</p>
           </div>
-        </article>
+        </article></div>
       </div>
     </section>
 
     <!-- ГАЛЕРЕЯ -->
-    <section class="section" id="gallery">
+    <section class="section container" id="gallery">
       <h2>Галерея работ</h2>
-      <div class="gallery-grid">
-        <figure class="gallery-item" tabindex="0" role="button"
+      <div class="row row-cols-2 row-cols-lg-4 g-4 gallery-row">
+        <div class="col"><figure class="gallery-item" tabindex="0" role="button"
                 data-title="Цветок"
                 data-author="Мария К."
                 data-level="Для начинающих"
@@ -378,11 +428,11 @@
                 data-techniques="Текстурная паста, Мастихин, Поталь"
                 data-materials="Текстурная паста, мастихин, холст 30х30, акрил, поталь, кисти"
                 data-mk="Объёмный цветок текстурной пастой">
-          <img src="images/pic7.png" alt="Картина «Цветок», текстурная паста" class="gallery-item__img">
+          <img src="images/gallery1.png" alt="Картина «Цветок», текстурная паста" class="gallery-item__img">
           <figcaption>«Цветок», текстурная паста — Мария К.</figcaption>
-        </figure>
+        </figure></div>
 
-        <figure class="gallery-item" tabindex="0" role="button"
+        <div class="col"><figure class="gallery-item" tabindex="0" role="button"
                 data-title="Море"
                 data-author="Алексей М."
                 data-level="Средний уровень"
@@ -390,11 +440,11 @@
                 data-techniques="Текстурная паста, Песок, Акрил"
                 data-materials="Текстурная паста, морской песок, мастихин, холст 40х30, акрил"
                 data-mk="Морской рельеф с песком">
-          <img src="images/pic8.png" alt="Картина «Море», паста + песок" class="gallery-item__img">
+          <img src="images/gallery2.png" alt="Картина «Море», паста + песок" class="gallery-item__img">
           <figcaption>«Море», паста + песок — Алексей М.</figcaption>
-        </figure>
+        </figure></div>
 
-        <figure class="gallery-item" tabindex="0" role="button"
+        <div class="col"><figure class="gallery-item" tabindex="0" role="button"
                 data-title="Минимализм"
                 data-author="Ольга В."
                 data-level="Для начинающих"
@@ -402,11 +452,11 @@
                 data-techniques="Текстурная паста, Шпатель, Монохром"
                 data-materials="Текстурная паста, шпатель, холст 30х40, акрил (белый, чёрный, серый)"
                 data-mk="Минимализм: текстура и монохром">
-          <img src="images/pic9.png" alt="Картина «Минимализм», интерьерная" class="gallery-item__img">
+          <img src="images/gallery3.png" alt="Картина «Минимализм», интерьерная" class="gallery-item__img">
           <figcaption>«Минимализм», интерьерная — Ольга В.</figcaption>
-        </figure>
+        </figure></div>
 
-        <figure class="gallery-item" tabindex="0" role="button"
+        <div class="col"><figure class="gallery-item" tabindex="0" role="button"
                 data-title="Горы"
                 data-author="Дмитрий С."
                 data-level="Продвинутый"
@@ -414,23 +464,23 @@
                 data-techniques="Текстурная паста, Мастихин, Акрил"
                 data-materials="Текстурная паста, мастихины (набор), холст 50х60, акрил, губка"
                 data-mk="Фактурный пейзаж">
-          <img src="images/pic10.png" alt="Картина «Горы», мастихин" class="gallery-item__img">
+          <img src="images/gallery4.png" alt="Картина «Горы», мастихин" class="gallery-item__img">
           <figcaption>«Горы», мастихин — Дмитрий С.</figcaption>
-        </figure>
+        </figure></div>
 
-        <figure class="gallery-item" tabindex="0" role="button"
+        <div class="col"><figure class="gallery-item" tabindex="0" role="button"
                 data-title="Новогодний шар"
                 data-author="Наталья Р."
                 data-level="Для начинающих"
                 data-time="2 часа"
                 data-techniques="Текстурная паста, Мастихин, Поталь"
-                data-materials="Деревянная основа-шар, Текстурная паста, Мастихин, Акрил, Поталь, Лента"
+                data-materials="Текстурная паста, Мастихин, Акрил, Поталь, Лента"
                 data-mk="Новогодний шар">
           <img src="images/gallery5.png" alt="Работа «Новогодний шар», паста + поталь" class="gallery-item__img">
           <figcaption>«Новогодний шар», паста + поталь — Наталья Р.</figcaption>
-        </figure>
+        </figure></div>
 
-        <figure class="gallery-item" tabindex="0" role="button"
+        <div class="col"><figure class="gallery-item" tabindex="0" role="button"
                 data-title="Волна"
                 data-author="Сергей Т."
                 data-level="Для начинающих"
@@ -440,21 +490,21 @@
                 data-mk="Абстракция мастихином">
           <img src="images/gallery6.png" alt="Картина «Волна», абстракция мастихином" class="gallery-item__img">
           <figcaption>«Волна», абстракция мастихином — Сергей Т.</figcaption>
-        </figure>
+        </figure></div>
 
-        <figure class="gallery-item" tabindex="0" role="button"
-                data-title="Золотые листья"
+        <div class="col"><figure class="gallery-item" tabindex="0" role="button"
+                data-title="Лебедь в золоте"
                 data-author="Анна С."
                 data-level="Средний уровень"
                 data-time="3,5 часа"
                 data-techniques="Текстурная паста, Поталь, Мастихин"
                 data-materials="Текстурная паста, Клей для потали, Листовая поталь, Мастихин, Холст 40х50"
                 data-mk="Золотая поталь">
-          <img src="images/gallery7.png" alt="Картина «Золотые листья», листовая поталь" class="gallery-item__img">
-          <figcaption>«Золотые листья», поталь — Анна С.</figcaption>
-        </figure>
+          <img src="images/gallery7.png" alt="Картина «Лебедь в золоте», листовая поталь" class="gallery-item__img">
+          <figcaption>«Лебедь в золоте», поталь — Анна С.</figcaption>
+        </figure></div>
 
-        <figure class="gallery-item" tabindex="0" role="button"
+        <div class="col"><figure class="gallery-item" tabindex="0" role="button"
                 data-title="Дюны"
                 data-author="Ирина П."
                 data-level="Для начинающих"
@@ -464,15 +514,15 @@
                 data-mk="Пустыня и дюны">
           <img src="images/gallery8.png" alt="Картина «Дюны», паста + песок" class="gallery-item__img">
           <figcaption>«Дюны», паста + песок — Ирина П.</figcaption>
-        </figure>
+        </figure></div>
       </div>
     </section>
 
     <!-- ПРЕПОДАВАТЕЛИ -->
-    <section class="section" id="teachers">
+    <section class="section container" id="teachers">
       <h2>Преподаватели</h2>
-      <div class="teachers-grid">
-        <article class="teacher-card" tabindex="0" role="button"
+      <div class="row g-4">
+        <div class="col-12 col-md-4"><article class="teacher-card h-100" tabindex="0" role="button"
                 data-name="Анна Соколова"
                 data-role="Текстурная живопись"
                 data-photo="images/teacher1.png"
@@ -484,40 +534,40 @@
           <p class="teacher-card__role">Текстурная живопись</p>
           <p class="teacher-card__text">8 лет опыта, автор курса «Объём и свет»</p>
           <span class="teacher-card__more">Смотреть портфолио →</span>
-        </article>
+        </article></div>
 
-        <article class="teacher-card" tabindex="0" role="button"
-                data-name="Игорь Левин"
+        <div class="col-12 col-md-4"><article class="teacher-card h-100" tabindex="0" role="button"
+                data-name="Нелли Левина"
                 data-role="Абстракция, мастихин"
                 data-photo="images/teacher2.png"
                 data-bio="Участник городских выставок, работает с крупным форматом. Учит свободным мазкам и смелому цвету, помогает не бояться мастихина."
                 data-mks="Абстракция мастихином, Фактурный пейзаж, Морской рельеф"
                 data-works="images/teacher2-work1.png, images/teacher2-work2.png, images/teacher2-work3.png">
-          <img class="teacher-card__photo" src="images/teacher2.png" alt="Игорь Левин">
+          <img class="teacher-card__photo" src="images/teacher2.png" alt="Нелли Левина">
           <h3 class="teacher-card__name">Нелли Левина</h3>
           <p class="teacher-card__role">Абстракция, мастихин</p>
           <p class="teacher-card__text">Участник городских выставок, работает с крупным форматом</p>
           <span class="teacher-card__more">Смотреть портфолио →</span>
-        </article>
+        </article></div>
 
-        <article class="teacher-card" tabindex="0" role="button"
-                data-name="Елена Морозова"
+        <div class="col-12 col-md-4"><article class="teacher-card h-100" tabindex="0" role="button"
+                data-name="Александра Иванина"
                 data-role="Поталь и интерьерные работы"
                 data-photo="images/teacher3.png"
                 data-bio="Специалист по декоративным техникам. Создаёт интерьерные панно с золотой и серебряной потальью, учит аккуратной работе с листовым золотом."
                 data-mks="Золотая поталь, Фактурный пейзаж, Пустыня и дюны"
                 data-works="images/teacher3-work1.png, images/teacher3-work2.png, images/teacher3-work3.png">
-          <img class="teacher-card__photo" src="images/teacher3.png" alt="Елена Морозова">
+          <img class="teacher-card__photo" src="images/teacher3.png" alt="Александра Иванина">
           <h3 class="teacher-card__name">Александра Иванина</h3>
           <p class="teacher-card__role">Поталь и интерьерные работы</p>
           <p class="teacher-card__text">Специалист по декоративным техникам</p>
           <span class="teacher-card__more">Смотреть портфолио →</span>
-        </article>
+        </article></div>
       </div>
     </section>
 
     <!-- РАСПИСАНИЕ -->
-    <section class="section" id="schedule">
+    <section class="section container" id="schedule">
       <h2>Расписание занятий</h2>
       <div class="table-wrapper">
         <table class="schedule-table">
@@ -535,7 +585,7 @@
     </section>
     
     <!-- ОТЗЫВЫ (слайдер) -->
-    <section class="section rv" id="reviews" aria-labelledby="reviews-title">
+    <section class="section container rv" id="reviews" aria-labelledby="reviews-title">
       <h2 class="rv__title" id="reviews-title">Отзывы учеников</h2>
       <p class="rv__subtitle">Что говорят о наших мастер-классах</p>
 
@@ -638,10 +688,10 @@
 
   <!-- ПОДВАЛ -->
   <footer class="site-footer">
-    <div class="footer-container">
+    <div class="footer-container row gx-0 gy-4">
       
       <!-- Колонка 1: Логотип и описание -->
-      <div class="footer-col">
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
         <a href="index.html" class="footer-logo">Фактура</a>
         <p class="footer-desc">
           Творческая студия объёмных картин. Мастер-классы по текстурной живописи, работа с пастой, мастихином и поталью.
@@ -649,7 +699,7 @@
       </div>
 
       <!-- Колонка 2: Навигация -->
-      <div class="footer-col">
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
         <h4>Навигация</h4>
         <ul class="footer-list">
           <li><a href="index.html">Главная</a></li>
@@ -660,7 +710,7 @@
       </div>
 
       <!-- Колонка 3: Контакты -->
-      <div class="footer-col">
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
         <h4>Контакты</h4>
         <div class="footer-contact-item">
           <a href="mailto:info@faktura.ru">info@faktura.ru</a>
@@ -674,7 +724,7 @@
       </div>
 
       <!-- Колонка 4: Режим работы -->
-      <div class="footer-col">
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
         <h4>Время работы</h4>
         <div class="footer-contact-item">Ежедневно</div>
         <div class="footer-contact-item">10:00 – 21:00</div>
@@ -689,7 +739,8 @@
     </footer>
 
     <!-- Скрипт для кнопки наверх -->
-    <script src="js/scroll-top.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/scroll-top.js"></script>
 
     <!-- Скрипт слайдера отзывов -->
     <script src="js/reviews-slider.js"></script>
@@ -697,5 +748,7 @@
     <script src="js/gallery.js"></script>
 
     <script src="js/teachers.js"></script>
+
+    <script src="js/order-dialog.js"></script>
   </body>
 </html>

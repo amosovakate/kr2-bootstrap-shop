@@ -24,12 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const levelMatch = checkedLevels.length === 0 || checkedLevels.includes(cardLevel);
         const priceMatch = cardPrice >= priceFrom && cardPrice <= priceTo;
 
-        if (levelMatch && priceMatch) {
-          card.style.display = 'flex';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
+        const show = levelMatch && priceMatch;
+        // прячем всю колонку сетки (col-*), а не только карточку
+        card.closest('.mk-col').classList.toggle('d-none', !show);
+        if (show) visibleCount++;
       });
 
       if (visibleCount === 0) {

@@ -50,10 +50,12 @@
       <p class="page-subtitle">Выберите занятие по уровню и технике. Все материалы включены в стоимость.</p>
     </div>
 
-    <section class="section catalog-layout" style="padding-top: 0;">
+    <section class="section container" style="padding-top: 0;">
+      <div class="row g-4">
       
       <!-- БЛОК ФИЛЬТРОВ -->
-      <aside class="catalog-filters">
+      <aside class="col-12 col-lg-3">
+      <div class="catalog-filters">
         <h2>Фильтры</h2>
         <form class="filters-form" action="#" method="get" id="filter-form">
           <fieldset>
@@ -71,18 +73,19 @@
           </fieldset>
           <button class="button button--primary" type="submit">Применить</button>
         </form>
+      </div>
       </aside>
 
       <!-- СПИСОК КАРТОЧЕК -->
-      <section class="catalog-products">
+      <section class="col-12 col-lg-9 catalog-products">
         <h2>Список мастер-классов</h2>
         
         <p id="no-results" style="display: none; color: var(--facture-muted); font-size: 1.1rem;">По вашему запросу ничего не найдено.</p>
 
-        <div class="products-grid" id="mk-grid">
+        <div class="row g-4" id="mk-grid">
 
           <!-- МК: Новогодний шар -->
-          <article class="product-card mk-card"
+          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card"
                   data-title="Новогодний шар"
                   data-desc="Рельефный ёлочный шар с золотой поталью. Вы создадите уникальное украшение на ёлку или подарок близким."
                   data-level="beginner"
@@ -101,10 +104,10 @@
             <div class="product-card__actions">
               <button class="button button--primary open-details-btn" type="button">Подробнее</button>
             </div>
-          </article>
+          </article></div>
 
           <!-- МК 1 -->
-          <article class="product-card mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
                    data-title="Объёмный цветок текстурной пастой" 
                    data-desc="Создадим рельефный 3D-цветок мастихином, добавим поталь для акцента. Вы научитесь работать с текстурной пастой и создавать объёмные лепестки." 
                    data-level="beginner" 
@@ -123,10 +126,10 @@
             <div class="product-card__actions">
               <button class="button button--primary open-details-btn" type="button">Подробнее</button>
             </div>
-          </article>
+          </article></div>
 
           <!-- МК 2 -->
-          <article class="product-card mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
                    data-title="Абстракция мастихином" 
                    data-desc="Свободные мазки, работа с цветом и фактурой. Научитесь чувствовать мастихин и создавать динамичные абстрактные композиции." 
                    data-level="beginner" 
@@ -144,10 +147,10 @@
             <div class="product-card__actions">
               <button class="button button--primary open-details-btn" type="button">Подробнее</button>
             </div>
-          </article>
+          </article></div>
 
           <!-- МК 3 -->
-          <article class="product-card mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
                    data-title="Морской рельеф с песком" 
                    data-desc="Текстурная паста + песок + акрил. Мы создадим объёмную морскую гладь, которая будет переливаться на свету." 
                    data-level="middle" 
@@ -165,19 +168,19 @@
             <div class="product-card__actions">
               <button class="button button--primary open-details-btn" type="button">Подробнее</button>
             </div>
-          </article>
+          </article></div>
 
           <!-- МК 4 -->
-          <article class="product-card mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
                    data-title="Золотая поталь" 
                    data-desc="Интерьерная картина с листовой поталью. Узнаете секреты золочения и создадите роскошную фактуру." 
                    data-level="middle" 
                    data-time="3,5 часа" 
                    data-price="3200"
                    data-materials="Текстурная паста, клей для потали, листовая поталь, мастихин, холст 40х50"
-                   data-img="images/pic20.png">
+                   data-img="images/pic4.png">
             <div class="product-card__image-wrapper">
-              <img src="images/pic20.png" alt="Золотая поталь" class="product-card__image">
+              <img src="images/pic4.png" alt="Золотая поталь" class="product-card__image">
             </div>
             <h3 class="product-card__title">Золотая поталь</h3>
             <p class="product-card__description">Интерьерная картина с листовой поталью.</p>
@@ -186,10 +189,10 @@
             <div class="product-card__actions">
               <button class="button button--primary open-details-btn" type="button">Подробнее</button>
             </div>
-          </article>
+          </article></div>
 
           <!-- МК 5 -->
-          <article class="product-card mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
                    data-title="Минимализм: текстура и монохром" 
                    data-desc="Сдержанная палитра, игра света и тени на рельефе. Идеально для создания современного интерьерного искусства." 
                    data-level="beginner" 
@@ -207,10 +210,10 @@
             <div class="product-card__actions">
               <button class="button button--primary open-details-btn" type="button">Подробнее</button>
             </div>
-          </article>
+          </article></div>
 
           <!-- МК 6 -->
-          <article class="product-card mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
                    data-title="Фактурный пейзаж" 
                    data-desc="Объёмные горы, небо и вода. Комплексная работа с текстурной пастой и мастихином на большом холсте." 
                    data-level="advanced" 
@@ -228,10 +231,10 @@
             <div class="product-card__actions">
               <button class="button button--primary open-details-btn" type="button">Подробнее</button>
             </div>
-          </article>
+          </article></div>
 
           <!-- МК: Пустыня и дюны -->
-          <article class="product-card mk-card"
+          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card"
                   data-title="Пустыня и дюны"
                   data-desc="Тёплая терракотовая палитра, песок и мягкие волны рельефа. Спокойная работа, которая отлично подходит для первого раза."
                   data-level="beginner"
@@ -249,10 +252,11 @@
             <div class="product-card__actions">
               <button class="button button--primary open-details-btn" type="button">Подробнее</button>
             </div>
-          </article>
+          </article></div>
 
         </div>
       </section>
+      </div>
     </section>
 
     <!-- МОДАЛЬНОЕ ОКНО ПОДРОБНОСТЕЙ -->
@@ -297,10 +301,10 @@
 
   <!-- ПОДВАЛ -->
   <footer class="site-footer">
-    <div class="footer-container">
+    <div class="footer-container row gx-0 gy-4">
       
       <!-- Колонка 1: Логотип и описание -->
-      <div class="footer-col">
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
         <a href="index.html" class="footer-logo">Фактура</a>
         <p class="footer-desc">
           Творческая студия объёмных картин. Мастер-классы по текстурной живописи, работа с пастой, мастихином и поталью.
@@ -308,7 +312,7 @@
       </div>
 
       <!-- Колонка 2: Навигация -->
-      <div class="footer-col">
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
         <h4>Навигация</h4>
         <ul class="footer-list">
           <li><a href="index.html">Главная</a></li>
@@ -319,7 +323,7 @@
       </div>
 
       <!-- Колонка 3: Контакты -->
-      <div class="footer-col">
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
         <h4>Контакты</h4>
         <div class="footer-contact-item">
           <a href="mailto:info@faktura.ru">info@faktura.ru</a>
@@ -333,7 +337,7 @@
       </div>
 
       <!-- Колонка 4: Режим работы -->
-      <div class="footer-col">
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
         <h4>Время работы</h4>
         <div class="footer-contact-item">Ежедневно</div>
         <div class="footer-contact-item">10:00 – 21:00</div>
@@ -348,6 +352,7 @@
   </footer>
 
   <button class="scroll-top" type="button" aria-label="Наверх">↑</button>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/scroll-top.js"></script>
   
   <script src="js/catalog.js"></script>
