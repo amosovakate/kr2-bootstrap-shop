@@ -16,24 +16,27 @@
 </head>
 <body>
 
-  <!-- ШАПКА -->
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">Фактура</a>
+
+<header class="site-header">
+  <div class="topbar">
+    Ближайший мастер-класс: 12 ноября, «Объёмный цветок» ·
+    <a href="order.html">Занять место →</a>
+  </div>
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html"><span class="site-header__star">✦</span>Фактура</a>
+    <div class="site-header__right">
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Мастер-классы</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html#techniques">Техники и материалы</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#gallery">Галерея</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="reviews.html">Отзывы</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="order.html">Запись</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="questions.html">Вопросы</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
+      <a class="button button--primary" href="order.html">Записаться</a>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- ОСНОВНОЙ КОНТЕНТ -->
   <main>
@@ -77,6 +80,28 @@
         <p id="no-results" style="display: none; color: var(--facture-muted); font-size: 1.1rem;">По вашему запросу ничего не найдено.</p>
 
         <div class="products-grid" id="mk-grid">
+
+          <!-- МК: Новогодний шар -->
+          <article class="product-card mk-card"
+                  data-title="Новогодний шар"
+                  data-desc="Рельефный ёлочный шар с золотой поталью. Вы создадите уникальное украшение на ёлку или подарок близким."
+                  data-level="beginner"
+                  data-time="2 часа"
+                  data-price="1800"
+                  data-materials="Деревянная основа-шар, текстурная паста, мастихин, акрил, поталь, лента"
+                  data-img="images/pic8.png">
+            <span class="product-card__badge product-card__badge--ny">❄ Зимняя новинка</span>
+            <div class="product-card__image-wrapper">
+              <img src="images/pic8.png" alt="Новогодний шар" class="product-card__image">
+            </div>
+            <h3 class="product-card__title">Новогодний шар</h3>
+            <p class="product-card__description">Рельефный ёлочный шар с золотой поталью.</p>
+            <p class="product-card__meta">Для начинающих · 2 часа</p>
+            <p class="product-card__price">1 800 ₽</p>
+            <div class="product-card__actions">
+              <button class="button button--primary open-details-btn" type="button">Подробнее</button>
+            </div>
+          </article>
 
           <!-- МК 1 -->
           <article class="product-card mk-card" 
@@ -150,9 +175,9 @@
                    data-time="3,5 часа" 
                    data-price="3200"
                    data-materials="Текстурная паста, клей для потали, листовая поталь, мастихин, холст 40х50"
-                   data-img="images/pic4.png">
+                   data-img="images/pic20.png">
             <div class="product-card__image-wrapper">
-              <img src="images/pic4.png" alt="Золотая поталь" class="product-card__image">
+              <img src="images/pic20.png" alt="Золотая поталь" class="product-card__image">
             </div>
             <h3 class="product-card__title">Золотая поталь</h3>
             <p class="product-card__description">Интерьерная картина с листовой поталью.</p>
@@ -171,9 +196,9 @@
                    data-time="2 часа" 
                    data-price="1900"
                    data-materials="Текстурная паста, шпатель, холст 30х40, акрил (белый, черный, серый)"
-                   data-img="images/pic5.png">
+                   data-img="images/pic5.jpg">
             <div class="product-card__image-wrapper">
-              <img src="images/pic5.png" alt="Минимализм" class="product-card__image">
+              <img src="images/pic5.jpg" alt="Минимализм" class="product-card__image">
             </div>
             <h3 class="product-card__title">Минимализм: текстура и монохром</h3>
             <p class="product-card__description">Сдержанная палитра, игра света и тени.</p>
@@ -200,6 +225,27 @@
             <p class="product-card__description">Объёмные горы, небо и вода.</p>
             <p class="product-card__meta">Продвинутый · 4 часа</p>
             <p class="product-card__price">3 000 ₽</p>
+            <div class="product-card__actions">
+              <button class="button button--primary open-details-btn" type="button">Подробнее</button>
+            </div>
+          </article>
+
+          <!-- МК: Пустыня и дюны -->
+          <article class="product-card mk-card"
+                  data-title="Пустыня и дюны"
+                  data-desc="Тёплая терракотовая палитра, песок и мягкие волны рельефа. Спокойная работа, которая отлично подходит для первого раза."
+                  data-level="beginner"
+                  data-time="2,5 часа"
+                  data-price="2300"
+                  data-materials="Текстурная паста, декоративный песок, мастихин, холст 40х30, акрил"
+                  data-img="images/pic7.png">
+            <div class="product-card__image-wrapper">
+              <img src="images/pic7.png" alt="Пустыня и дюны" class="product-card__image">
+            </div>
+            <h3 class="product-card__title">Пустыня и дюны</h3>
+            <p class="product-card__description">Терракотовая палитра, песок и мягкие волны.</p>
+            <p class="product-card__meta">Для начинающих · 2,5 часа</p>
+            <p class="product-card__price">2 300 ₽</p>
             <div class="product-card__actions">
               <button class="button button--primary open-details-btn" type="button">Подробнее</button>
             </div>
@@ -268,7 +314,6 @@
           <li><a href="index.html">Главная</a></li>
           <li><a href="catalog.html">Мастер-классы</a></li>
           <li><a href="index.html#gallery">Галерея</a></li>
-          <li><a href="reviews.html">Отзывы</a></li>
           <li><a href="order.html">Запись</a></li>
         </ul>
       </div>
@@ -292,9 +337,6 @@
         <h4>Время работы</h4>
         <div class="footer-contact-item">Ежедневно</div>
         <div class="footer-contact-item">10:00 – 21:00</div>
-        <div class="footer-contact-item" style="margin-top: 1rem;">
-          <a href="contacts.html" style="color: var(--facture-accent); text-decoration: underline;">Как добраться →</a>
-        </div>
       </div>
 
     </div>

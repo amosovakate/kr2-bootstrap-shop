@@ -19,23 +19,25 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">Фактура</a>
+<header class="site-header">
+  <div class="topbar">
+    Ближайший мастер-класс: 12 ноября, «Объёмный цветок» ·
+    <a href="order.html">Занять место →</a>
+  </div>
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html"><span class="site-header__star">✦</span>Фактура</a>
+    <div class="site-header__right">
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Мастер-классы</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="#techniques">Техники и материалы</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="#gallery">Галерея</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="reviews.html">Отзывы</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="order.html">Запись</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="questions.html">Вопросы</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
+      <a class="button button--primary" href="order.html">Записаться</a>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Модальное окно записи -->
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
@@ -92,33 +94,118 @@
 
   <p class="success-message" id="success-message" hidden>Заявка успешно отправлена! Мы свяжемся с вами.</p>
 
+
+
+    <dialog class="gallery-dialog" id="gallery-dialog" aria-labelledby="gd-title">
+      <img id="gd-img" class="dialog-image" src="" alt="">
+      <div class="dialog-content">
+        <h2 id="gd-title"></h2>
+        <p id="gd-author" class="gd-author"></p>
+
+        <div class="dialog-info-grid">
+          <div class="dialog-info-item"><span>Уровень</span><p id="gd-level"></p></div>
+          <div class="dialog-info-item"><span>Время</span><p id="gd-time"></p></div>
+          <div class="dialog-info-item"><span>Мастер-класс</span><p id="gd-mk"></p></div>
+        </div>
+
+        <div class="dialog-materials">
+          <h4>Техники</h4>
+          <ul class="gd-tags" id="gd-techniques"></ul>
+        </div>
+
+        <div class="dialog-materials">
+          <h4>Что понадобится</h4>
+          <ul id="gd-materials"></ul>
+        </div>
+
+        <div class="dialog-actions">
+          <button type="button" class="button button--secondary" id="gd-close">Закрыть</button>
+          <a href="order.html" class="button button--primary">Записаться на такой же</a>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="teacher-dialog" id="teacher-dialog" aria-labelledby="td-name">
+      <div class="dialog-content">
+        <div class="td-head">
+          <img id="td-photo" class="td-photo" src="" alt="">
+          <div>
+            <h2 id="td-name"></h2>
+            <p id="td-role" class="td-role"></p>
+          </div>
+        </div>
+
+        <p id="td-bio" class="td-bio"></p>
+
+        <div class="dialog-materials">
+          <h4>Ведёт мастер-классы</h4>
+          <ul class="gd-tags" id="td-mks"></ul>
+        </div>
+
+        <div class="dialog-materials">
+          <h4>Работы</h4>
+          <div class="td-works" id="td-works"></div>
+        </div>
+
+        <div class="dialog-actions">
+          <button type="button" class="button button--secondary" id="td-close">Закрыть</button>
+          <a href="order.html" class="button button--primary">Записаться</a>
+        </div>
+      </div>
+    </dialog>
+
+
   <main>
     <!-- HERO -->
     <section class="hero">
-      <h1 class="hero__title">Объёмные картины,<br>созданные вашими руками</h1>
-      <p class="hero__text">
-        Студия «Фактура» — это мастер-классы по текстурной живописи. Мы научим работать
-        с текстурной пастой, мастихином, поталью и акрилом. Все материалы включены,
-        готовую картину забираете домой.
-      </p>
-      <a class="button button--primary" href="#popular">Смотреть мастер-классы</a>
+      <div class="hero__content">
+        <h1 class="hero__title">Объёмные картины,<br><em>созданные вашими руками</em></h1>
+        <p class="hero__text">
+          Студия «Фактура» — это мастер-классы по текстурной живописи. <br>Мы научим работать
+          с текстурной пастой, мастихином, поталью и акрилом. <br>Отвлекитесь от рутины, создайте
+          свой личный шедевр и насладитесь процессом.
+
+
+        </p>
+
+        <div class="hero__actions">
+          <a class="button button--primary" href="#popular">Смотреть мастер-классы</a>
+          <a class="button button--secondary" href="order.html">Выбрать дату и время →</a>
+        </div>
+
+        <ul class="hero__facts">
+          <li><strong>0</strong><span>опыта нужно</span></li>
+          <li><strong>до 6</strong><span>человек в группе</span></li>
+          <li><strong>100%</strong><span>материалов включено</span></li>
+        </ul>
+      </div>
+
+      <div class="hero__visual">
+        <img class="hero__image" src="images/pic67.png" alt="Объёмная картина с цветами из текстурной пасты">
+        <div class="hero__note">Картина — <em>домой в тот же день</em></div>
+      </div>
     </section>
 
-    <!-- ПРЕИМУЩЕСТВА -->
-    <section class="section" id="advantages">
-      <h2>Почему «Фактура»</h2>
-      <ul class="advantages-list">
-        <li>Авторские техники и уникальные приёмы работы с пастой</li>
-        <li>Все материалы включены в стоимость</li>
-        <li>Малые группы — до 6 человек</li>
-        <li>Готовую картину забираете сразу после занятия</li>
-      </ul>
-    </section>
 
     <!-- ПОПУЛЯРНЫЕ МАСТЕР-КЛАССЫ -->
     <section class="section" id="popular">
       <h2>Популярные мастер-классы</h2>
       <div class="products-grid">
+
+        <!-- МК: Новогодний шар -->
+        <article class="product-card">
+          <span class="product-card__badge product-card__badge--ny">❄ К Новому году</span>
+          <div class="product-card__image-wrapper">
+            <img src="images/pic8.png" alt="Мастер-класс «Новогодний шар»" class="product-card__image">
+          </div>
+          <h3 class="product-card__title">Новогодний шар</h3>
+          <p class="product-card__description">Рельефный ёлочный шар с золотой поталью. Украсит ёлку или станет подарком.</p>
+          <p class="product-card__meta">Для начинающих · 2 часа</p>
+          <p class="product-card__price">1 800 ₽</p>
+          <div class="product-card__actions">
+            <button class="button button--primary" type="button" data-product="Новогодний шар">Записаться</button>
+          </div>
+        </article>
 
         <!-- МК 1 -->
         <article class="product-card">
@@ -166,7 +253,7 @@
         <!-- МК 4 -->
         <article class="product-card">
           <div class="product-card__image-wrapper">
-            <img src="images/pic4.png" alt="Мастер-класс «Золотая поталь»" class="product-card__image">
+            <img src="images/pic20.png" alt="Мастер-класс «Золотая поталь»" class="product-card__image">
           </div>
           <h3 class="product-card__title">Золотая поталь</h3>
           <p class="product-card__description">Интерьерная картина с листовой поталью и глубокой фактурой.</p>
@@ -180,7 +267,7 @@
         <!-- МК 5 -->
         <article class="product-card">
           <div class="product-card__image-wrapper">
-            <img src="images/pic5.png" alt="Мастер-класс «Минимализм: текстура и монохром»" class="product-card__image">
+            <img src="images/pic5.jpg" alt="Мастер-класс «Минимализм: текстура и монохром»" class="product-card__image">
           </div>
           <h3 class="product-card__title">Минимализм: текстура и монохром</h3>
           <p class="product-card__description">Сдержанная палитра, игра света и тени на рельефе.</p>
@@ -205,18 +292,77 @@
           </div>
         </article>
 
+        <!-- МК: Пустыня и дюны -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img src="images/pic7.png" alt="Мастер-класс «Пустыня и дюны»" class="product-card__image">
+          </div>
+          <h3 class="product-card__title">Пустыня и дюны</h3>
+          <p class="product-card__description">Тёплая терракотовая палитра, песок и мягкие волны рельефа.</p>
+          <p class="product-card__meta">Для начинающих · 2,5 часа</p>
+          <p class="product-card__price">2 300 ₽</p>
+          <div class="product-card__actions">
+            <button class="button button--primary" type="button" data-product="Пустыня и дюны">Записаться</button>
+          </div>
+        </article>
+
       </div>
     </section>
 
     <!-- ТЕХНИКИ И МАТЕРИАЛЫ -->
     <section class="section" id="techniques">
-      <h2>Техники и материалы</h2>
+      <div class="section-head">
+        <div>
+          <p class="hero__eyebrow">Из чего рождается картина</p>
+          <h2>Техники и материалы</h2>
+        </div>
+      </div>
+
       <div class="techniques-grid">
-        <div class="technique-item"><span class="technique-item__icon">🖌️</span><h3 class="technique-item__title">Текстурная паста</h3><p class="technique-item__text">Основа объёма: держит форму, сохнет 24 ч.</p></div>
-        <div class="technique-item"><span class="technique-item__icon">🔪</span><h3 class="technique-item__title">Мастихин</h3><p class="technique-item__text">Создаёт рельефные мазки и срезы.</p></div>
-        <div class="technique-item"><span class="technique-item__icon">✨</span><h3 class="technique-item__title">Поталь</h3><p class="technique-item__text">Золотые и серебряные акценты.</p></div>
-        <div class="technique-item"><span class="technique-item__icon">🎨</span><h3 class="technique-item__title">Акрил</h3><p class="technique-item__text">Цвет и тонировка фактуры.</p></div>
-        <div class="technique-item"><span class="technique-item__icon">🏖️</span><h3 class="technique-item__title">Песок</h3><p class="technique-item__text">Дополнительная зернистость.</p></div>
+        <article class="technique-item" tabindex="0">
+          <img src="images/pic9.png" alt="" class="technique-item__img">
+          <span class="technique-item__num">01</span>
+          <div class="technique-item__body">
+            <h3 class="technique-item__title">Текстурная паста</h3>
+            <p class="technique-item__text">Основа объёма: держит форму, сохнет 24 часа</p>
+          </div>
+        </article>
+
+        <article class="technique-item" tabindex="0">
+          <img src="images/pic10.png" alt="" class="technique-item__img">
+          <span class="technique-item__num">02</span>
+          <div class="technique-item__body">
+            <h3 class="technique-item__title">Мастихин</h3>
+            <p class="technique-item__text">Создаёт рельефные мазки и срезы</p>
+          </div>
+        </article>
+
+        <article class="technique-item" tabindex="0">
+          <img src="images/pic11.png" alt="" class="technique-item__img">
+          <span class="technique-item__num">03</span>
+          <div class="technique-item__body">
+            <h3 class="technique-item__title">Поталь</h3>
+            <p class="technique-item__text">Золотые акценты</p>
+          </div>
+        </article>
+
+        <article class="technique-item" tabindex="0">
+          <img src="images/pic12.png" alt="" class="technique-item__img">
+          <span class="technique-item__num">04</span>
+          <div class="technique-item__body">
+            <h3 class="technique-item__title">Акрил</h3>
+            <p class="technique-item__text">Цвет и тонировка фактуры</p>
+          </div>
+        </article>
+
+        <article class="technique-item" tabindex="0">
+          <img src="images/pic13.png" alt="" class="technique-item__img">
+          <span class="technique-item__num">05</span>
+          <div class="technique-item__body">
+            <h3 class="technique-item__title">Песок</h3>
+            <p class="technique-item__text">Дополнительная зернистость</p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -224,21 +370,100 @@
     <section class="section" id="gallery">
       <h2>Галерея работ</h2>
       <div class="gallery-grid">
-        <figure class="gallery-item">
-        <img src="images/pic7.png" alt="Картина «Цветок», текстурная паста" class="gallery-item__img">
-        <figcaption>«Цветок», текстурная паста — Мария К.</figcaption>
+        <figure class="gallery-item" tabindex="0" role="button"
+                data-title="Цветок"
+                data-author="Мария К."
+                data-level="Для начинающих"
+                data-time="3 часа"
+                data-techniques="Текстурная паста, Мастихин, Поталь"
+                data-materials="Текстурная паста, мастихин, холст 30х30, акрил, поталь, кисти"
+                data-mk="Объёмный цветок текстурной пастой">
+          <img src="images/pic7.png" alt="Картина «Цветок», текстурная паста" class="gallery-item__img">
+          <figcaption>«Цветок», текстурная паста — Мария К.</figcaption>
         </figure>
-        <figure class="gallery-item">
+
+        <figure class="gallery-item" tabindex="0" role="button"
+                data-title="Море"
+                data-author="Алексей М."
+                data-level="Средний уровень"
+                data-time="3 часа"
+                data-techniques="Текстурная паста, Песок, Акрил"
+                data-materials="Текстурная паста, морской песок, мастихин, холст 40х30, акрил"
+                data-mk="Морской рельеф с песком">
           <img src="images/pic8.png" alt="Картина «Море», паста + песок" class="gallery-item__img">
           <figcaption>«Море», паста + песок — Алексей М.</figcaption>
         </figure>
-        <figure class="gallery-item">
+
+        <figure class="gallery-item" tabindex="0" role="button"
+                data-title="Минимализм"
+                data-author="Ольга В."
+                data-level="Для начинающих"
+                data-time="2 часа"
+                data-techniques="Текстурная паста, Шпатель, Монохром"
+                data-materials="Текстурная паста, шпатель, холст 30х40, акрил (белый, чёрный, серый)"
+                data-mk="Минимализм: текстура и монохром">
           <img src="images/pic9.png" alt="Картина «Минимализм», интерьерная" class="gallery-item__img">
           <figcaption>«Минимализм», интерьерная — Ольга В.</figcaption>
         </figure>
-        <figure class="gallery-item">
+
+        <figure class="gallery-item" tabindex="0" role="button"
+                data-title="Горы"
+                data-author="Дмитрий С."
+                data-level="Продвинутый"
+                data-time="4 часа"
+                data-techniques="Текстурная паста, Мастихин, Акрил"
+                data-materials="Текстурная паста, мастихины (набор), холст 50х60, акрил, губка"
+                data-mk="Фактурный пейзаж">
           <img src="images/pic10.png" alt="Картина «Горы», мастихин" class="gallery-item__img">
           <figcaption>«Горы», мастихин — Дмитрий С.</figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0" role="button"
+                data-title="Новогодний шар"
+                data-author="Наталья Р."
+                data-level="Для начинающих"
+                data-time="2 часа"
+                data-techniques="Текстурная паста, Мастихин, Поталь"
+                data-materials="Деревянная основа-шар, Текстурная паста, Мастихин, Акрил, Поталь, Лента"
+                data-mk="Новогодний шар">
+          <img src="images/gallery5.png" alt="Работа «Новогодний шар», паста + поталь" class="gallery-item__img">
+          <figcaption>«Новогодний шар», паста + поталь — Наталья Р.</figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0" role="button"
+                data-title="Волна"
+                data-author="Сергей Т."
+                data-level="Для начинающих"
+                data-time="2,5 часа"
+                data-techniques="Текстурная паста, Мастихин, Акрил"
+                data-materials="Текстурная паста, Мастихин, Холст 40х40, Акриловые краски"
+                data-mk="Абстракция мастихином">
+          <img src="images/gallery6.png" alt="Картина «Волна», абстракция мастихином" class="gallery-item__img">
+          <figcaption>«Волна», абстракция мастихином — Сергей Т.</figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0" role="button"
+                data-title="Золотые листья"
+                data-author="Анна С."
+                data-level="Средний уровень"
+                data-time="3,5 часа"
+                data-techniques="Текстурная паста, Поталь, Мастихин"
+                data-materials="Текстурная паста, Клей для потали, Листовая поталь, Мастихин, Холст 40х50"
+                data-mk="Золотая поталь">
+          <img src="images/gallery7.png" alt="Картина «Золотые листья», листовая поталь" class="gallery-item__img">
+          <figcaption>«Золотые листья», поталь — Анна С.</figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0" role="button"
+                data-title="Дюны"
+                data-author="Ирина П."
+                data-level="Для начинающих"
+                data-time="2,5 часа"
+                data-techniques="Текстурная паста, Песок, Акрил"
+                data-materials="Текстурная паста, Декоративный песок, Мастихин, Холст 40х30, Акрил"
+                data-mk="Пустыня и дюны">
+          <img src="images/gallery8.png" alt="Картина «Дюны», паста + песок" class="gallery-item__img">
+          <figcaption>«Дюны», паста + песок — Ирина П.</figcaption>
         </figure>
       </div>
     </section>
@@ -247,9 +472,47 @@
     <section class="section" id="teachers">
       <h2>Преподаватели</h2>
       <div class="teachers-grid">
-        <article class="teacher-card"><div class="teacher-card__avatar">👩‍🎨</div><h3 class="teacher-card__name">Анна Соколова</h3><p class="teacher-card__role">Текстурная живопись</p><p class="teacher-card__text">8 лет опыта, автор курса «Объём и свет»</p></article>
-        <article class="teacher-card"><div class="teacher-card__avatar">👨‍🎨</div><h3 class="teacher-card__name">Игорь Левин</h3><p class="teacher-card__role">Абстракция, мастихин</p><p class="teacher-card__text">Участник городских выставок, работает с крупным форматом</p></article>
-        <article class="teacher-card"><div class="teacher-card__avatar">🧑‍🎨</div><h3 class="teacher-card__name">Елена Морозова</h3><p class="teacher-card__role">Поталь и интерьерные работы</p><p class="teacher-card__text">Специалист по декоративным техникам</p></article>
+        <article class="teacher-card" tabindex="0" role="button"
+                data-name="Анна Соколова"
+                data-role="Текстурная живопись"
+                data-photo="images/teacher1.png"
+                data-bio="8 лет работает с текстурной пастой. Автор курса «Объём и свет». Любит цветочные композиции и мягкую пастельную палитру, спокойно ведёт новичков шаг за шагом."
+                data-mks="Объёмный цветок, Новогодний шар, Минимализм"
+                data-works="images/teacher1-work1.png, images/teacher1-work2.png, images/teacher1-work3.png">
+          <img class="teacher-card__photo" src="images/teacher1.png" alt="Анна Соколова">
+          <h3 class="teacher-card__name">Анна Соколова</h3>
+          <p class="teacher-card__role">Текстурная живопись</p>
+          <p class="teacher-card__text">8 лет опыта, автор курса «Объём и свет»</p>
+          <span class="teacher-card__more">Смотреть портфолио →</span>
+        </article>
+
+        <article class="teacher-card" tabindex="0" role="button"
+                data-name="Игорь Левин"
+                data-role="Абстракция, мастихин"
+                data-photo="images/teacher2.png"
+                data-bio="Участник городских выставок, работает с крупным форматом. Учит свободным мазкам и смелому цвету, помогает не бояться мастихина."
+                data-mks="Абстракция мастихином, Фактурный пейзаж, Морской рельеф"
+                data-works="images/teacher2-work1.png, images/teacher2-work2.png, images/teacher2-work3.png">
+          <img class="teacher-card__photo" src="images/teacher2.png" alt="Игорь Левин">
+          <h3 class="teacher-card__name">Нелли Левина</h3>
+          <p class="teacher-card__role">Абстракция, мастихин</p>
+          <p class="teacher-card__text">Участник городских выставок, работает с крупным форматом</p>
+          <span class="teacher-card__more">Смотреть портфолио →</span>
+        </article>
+
+        <article class="teacher-card" tabindex="0" role="button"
+                data-name="Елена Морозова"
+                data-role="Поталь и интерьерные работы"
+                data-photo="images/teacher3.png"
+                data-bio="Специалист по декоративным техникам. Создаёт интерьерные панно с золотой и серебряной потальью, учит аккуратной работе с листовым золотом."
+                data-mks="Золотая поталь, Фактурный пейзаж, Пустыня и дюны"
+                data-works="images/teacher3-work1.png, images/teacher3-work2.png, images/teacher3-work3.png">
+          <img class="teacher-card__photo" src="images/teacher3.png" alt="Елена Морозова">
+          <h3 class="teacher-card__name">Александра Иванина</h3>
+          <p class="teacher-card__role">Поталь и интерьерные работы</p>
+          <p class="teacher-card__text">Специалист по декоративным техникам</p>
+          <span class="teacher-card__more">Смотреть портфолио →</span>
+        </article>
       </div>
     </section>
 
@@ -392,7 +655,6 @@
           <li><a href="index.html">Главная</a></li>
           <li><a href="catalog.html">Мастер-классы</a></li>
           <li><a href="index.html#gallery">Галерея</a></li>
-          <li><a href="reviews.html">Отзывы</a></li>
           <li><a href="order.html">Запись</a></li>
         </ul>
       </div>
@@ -416,9 +678,6 @@
         <h4>Время работы</h4>
         <div class="footer-contact-item">Ежедневно</div>
         <div class="footer-contact-item">10:00 – 21:00</div>
-        <div class="footer-contact-item" style="margin-top: 1rem;">
-          <a href="contacts.html" style="color: var(--facture-accent); text-decoration: underline;">Как добраться →</a>
-        </div>
       </div>
 
     </div>
@@ -435,5 +694,8 @@
     <!-- Скрипт слайдера отзывов -->
     <script src="js/reviews-slider.js"></script>
 
+    <script src="js/gallery.js"></script>
+
+    <script src="js/teachers.js"></script>
   </body>
 </html>
