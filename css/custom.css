@@ -218,9 +218,7 @@ a:hover {
 .hero {
   position: relative;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1.4fr 0.6fr;
-  gap: 1.5rem;
+  display: flex;            /* внутри лежит Bootstrap .row */
   align-items: center;
   max-width: 1200px;
   margin: 0.75rem auto 1.25rem;
@@ -415,10 +413,7 @@ a:hover {
   .hero__visual::after { animation: none; }
 }
 
-@media (max-width: 860px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 991.98px) {
   .hero__image {
     height: min(45vh, 320px);
   }
@@ -440,12 +435,6 @@ a:hover {
 }
 
 /* ===== КАРТОЧКИ МАСТЕР-КЛАССОВ ===== */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.5rem;
-}
-
 .product-card {
   background: #fff;
   border: 1px solid var(--facture-border);
@@ -530,12 +519,6 @@ a:hover {
 }
 
 /* ===== ТЕХНИКИ И МАТЕРИАЛЫ ===== */
-.techniques-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-}
-
 .technique-item {
   position: relative;
   aspect-ratio: 3 / 4;
@@ -623,21 +606,12 @@ a:hover {
   }
 }
 
-@media (max-width: 960px) {
-  .techniques-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
 @media (max-width: 600px) {
-  .techniques-grid { grid-template-columns: repeat(2, 1fr); }
   .technique-item__title { font-size: 1.25rem; }
 }
 
 /* ===== ГАЛЕРЕЯ ===== */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  align-items: start;
+.gallery-row {
   padding-bottom: 2.5rem; /* запас под опущенные карточки */
 }
 
@@ -652,7 +626,7 @@ a:hover {
 }
 
 /* каждая вторая карточка опущена */
-.gallery-item:nth-child(even) {
+.gallery-row > :nth-child(even) .gallery-item {
   margin-top: 2.5rem;
 }
 
@@ -695,19 +669,7 @@ a:hover {
   }
 }
 
-@media (max-width: 860px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 /* ===== ПРЕПОДАВАТЕЛИ ===== */
-.teachers-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
 .teacher-card {
   background: #fff;
   border: 1px solid var(--facture-border);
@@ -1190,9 +1152,6 @@ a:hover {
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
-  gap: 2rem;
 }
 
 .footer-col h4 {
@@ -1314,15 +1273,8 @@ a:hover {
   }
 }
 
-@media (max-width: 900px) {
-  .footer-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .footer-container {
-    grid-template-columns: 1fr;
+@media (max-width: 767.98px) {
+  .footer-col {
     text-align: center;
   }
   .footer-desc {
@@ -1331,20 +1283,6 @@ a:hover {
 }
 
 /* ===== ОБНОВЛЕННЫЕ ФИЛЬТРЫ ===== */
-.catalog-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 2rem;
-  align-items: start;
-  margin-top: 1rem;
-}
-
-@media (max-width: 860px) {
-  .catalog-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
 .catalog-filters {
   background: #fff;
   padding: 1.5rem;
@@ -1925,4 +1863,474 @@ a:hover {
 @media (max-width: 600px) {
   .td-head { flex-direction: column; text-align: center; }
   .td-works { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+
+/* ===== ОКНО ЗАПИСИ: ДВЕ КОЛОНКИ ===== */
+.order-dialog {
+  max-width: 920px;
+  max-height: 92vh;
+  padding: 0;
+  overflow: hidden;
+}
+
+.order-dialog__layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  max-height: 92vh;
+}
+
+/* левая панель с фото */
+.order-dialog__aside {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 560px;
+  color: #fff;
+  background: #4a3b32;
+}
+
+.order-dialog__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 70% center; /* сдвигает кадр к цветку */
+}
+
+.order-dialog__aside::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(46, 42, 38, 0.92) 0%, rgba(46, 42, 38, 0.4) 60%, rgba(46, 42, 38, 0.15) 100%);
+}
+
+.order-dialog__aside-body {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 1.75rem;
+}
+
+.order-dialog__title {
+  font-size: 1.9rem;
+  line-height: 1.15;
+  color: #fff;
+  margin: 0 0 1.25rem;
+}
+
+.order-dialog__perks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.92rem;
+  color: #f3ece3;
+}
+
+.order-dialog__perks li {
+  margin-bottom: 0.5rem;
+}
+
+.order-dialog__perks li::before {
+  content: "✦";
+  margin-right: 0.6rem;
+  color: var(--facture-accent);
+}
+
+/* правая часть: форма в две колонки */
+.order-dialog .order-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+  align-content: start;
+  max-width: none;
+  padding: 2rem;
+  overflow-y: auto;
+  background: var(--facture-bg);
+}
+
+.order-form__field--wide {
+  grid-column: 1 / -1;
+}
+
+.order-dialog .order-form__field {
+  margin-bottom: 0.9rem;
+}
+
+.order-dialog .order-form__input,
+.order-dialog .order-form__select,
+.order-dialog .order-form__textarea {
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.order-dialog .order-form__input:focus,
+.order-dialog .order-form__select:focus,
+.order-dialog .order-form__textarea:focus {
+  box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.18);
+}
+
+.order-dialog .order-form__actions {
+  margin-top: 0.5rem;
+}
+
+/* ===== ЧИПЫ МАСТЕР-КЛАССОВ ===== */
+.mk-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mk-chip {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--facture-border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--facture-text);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.mk-chip:hover {
+  border-color: var(--facture-accent);
+  transform: translateY(-1px);
+}
+
+.mk-chip:focus-visible {
+  outline: 2px solid var(--facture-accent);
+  outline-offset: 2px;
+}
+
+.mk-chip.is-active {
+  background: var(--facture-primary);
+  border-color: var(--facture-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===== СЧЁТЧИК «− 1 +» ===== */
+.counter {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid var(--facture-border);
+  border-radius: 999px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.counter__btn {
+  width: 2.6rem;
+  height: 2.6rem;
+  border: none;
+  background: transparent;
+  color: var(--facture-primary-dark);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.counter__btn:hover {
+  background: var(--facture-surface);
+}
+
+.counter__input {
+  width: 2.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--facture-text);
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.counter__input::-webkit-outer-spin-button,
+.counter__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.counter__input:focus {
+  outline: none;
+}
+
+/* ===== УСПЕХ В ОКНЕ ===== */
+.order-success {
+  display: none;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  background: var(--facture-bg);
+}
+
+.order-dialog.is-sent .order-dialog__layout {
+  display: none;
+}
+
+.order-dialog.is-sent .order-success {
+  display: block;
+}
+
+.order-success__star {
+  display: inline-block;
+  font-size: 2.5rem;
+  color: var(--facture-accent);
+  animation: success-spin 1.2s ease-out;
+}
+
+.order-success__title {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 2rem;
+}
+
+.order-success__text {
+  max-width: 380px;
+  margin: 0 auto 1.5rem;
+  color: var(--facture-muted);
+}
+
+@keyframes success-spin {
+  from { transform: rotate(-180deg) scale(0.3); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+
+/* ===== ОКНО ЗАПИСИ: ТЕЛЕФОН ===== */
+@media (max-width: 760px) {
+  .order-dialog__layout {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .order-dialog__aside {
+    min-height: 150px;
+  }
+  .order-dialog__title {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+  .order-dialog__perks {
+    display: none;
+  }
+  .order-dialog .order-form {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+}
+
+
+
+/* исправление прокрутки окна записи */
+.order-dialog__layout {
+  height: 92vh;
+  max-height: 92vh;
+  overflow: hidden;
+}
+
+.order-dialog__aside {
+  min-height: 0;
+}
+
+.order-dialog .order-form {
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+
+
+/* фиксированная рамка комментария */
+.order-form__textarea {
+  height: 6rem;
+  resize: none;
+  overflow-y: auto;
+}
+
+.order-form__counter {
+  display: block;
+  margin-top: 0.25rem;
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--facture-muted);
+}
+
+
+
+
+
+/* ===== СТРАНИЦА ЗАПИСИ ===== */
+.order-card {
+  background: #fff;
+  border: 1px solid var(--facture-border);
+  border-radius: var(--facture-radius);
+  box-shadow: var(--facture-shadow);
+}
+
+.order-form--page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.25rem;
+  max-width: none;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.order-form--page[hidden] { display: none; }
+
+/* ошибки показываются только после попытки отправки */
+.order-form__error {
+  display: none;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: #a85f4a;
+}
+
+.order-form__error.is-shown,
+.was-validated .order-form__input:invalid ~ .order-form__error {
+  display: block;
+}
+
+.was-validated .order-form__input:invalid {
+  border-color: #a85f4a;
+}
+
+/* страница: успех внутри карточки */
+.order-card .order-success.is-shown {
+  display: block;
+}
+
+.order-card .order-success {
+  background: transparent;
+}
+
+.order-success .button + .button {
+  margin-left: 0.5rem;
+}
+
+/* боковая панель */
+.order-side {
+  position: sticky;
+  top: 100px;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.order-summary {
+  padding: 1.5rem;
+  border-radius: var(--facture-radius);
+  background: #4a3b32;
+  color: #f3ece3;
+  box-shadow: var(--facture-shadow);
+}
+
+.order-summary__title {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0 0 1.25rem;
+}
+
+.order-summary__list {
+  margin: 0 0 1.25rem;
+}
+
+.order-summary__list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.92rem;
+}
+
+.order-summary__list dt { font-weight: 500; color: #d1c7bd; }
+.order-summary__list dd { margin: 0; font-weight: 600; text-align: right; }
+
+.order-summary__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0;
+}
+
+.order-summary__total strong {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  color: var(--facture-accent);
+}
+
+.order-side__perks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--facture-muted);
+  font-size: 0.95rem;
+}
+
+.order-side__perks li { margin-bottom: 0.5rem; }
+
+.order-side__perks li::before {
+  content: "✦";
+  margin-right: 0.6rem;
+  color: var(--facture-accent);
+}
+
+.order-side__contacts {
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--facture-primary-dark);
+  border-radius: 10px;
+  background: var(--facture-surface);
+  font-size: 0.95rem;
+}
+
+.order-side__label {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+  .order-side { position: static; }
+}
+
+@media (max-width: 600px) {
+  .order-form--page { grid-template-columns: 1fr; }
+}
+
+
+/* ===== BOOTSTRAP-СЕТКА: добавки (практика 9) ===== */
+/* блок «Преимущества» */
+.advantage {
+  border-left: 4px solid var(--facture-accent) !important;
+  border-radius: var(--facture-radius) !important;
+}
+
+.advantage h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.advantage p {
+  color: var(--facture-muted);
+}
+
+/* карточки в колонках сетки тянутся на всю высоту ряда */
+.row > [class*="col"] > .product-card,
+.row > [class*="col"] > .teacher-card {
+  height: 100%;
+}
+
+/* общая ширина контейнеров совпадает с шапкой и секциями (1200px) */
+.container {
+  max-width: 1200px;
 }
