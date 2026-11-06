@@ -1,261 +1,246 @@
 <!DOCTYPE html>
-<html lang = "ru">
+<html lang="ru">
 <head>
-    <meta charset = "UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Учебный интернет-магазин">
-    <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-    <meta property="og:image" content="https://amosovakate.github.io/kr2-bootstrap-shop/images/preview.png">
-    <title>Учебный интернет-магазин</title> 
-    <link rel="stylesheet" href="css/custom.css">
-    <script src="js/main.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Подробное описание мастер-класса студии «Фактура».">
+  <title>Мастер-класс — Фактура</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/custom.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
-
-      <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="site-nav__list">
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html">Главная</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link " href="catalog.html" >Каталог</a>
-          </li>
-          <li class="site-nav__item">
-              <a class="site-nav__link site-nav__link--active" href="product.html" aria-current="page">Карточки товаров</a>   
-          </li>
-          <li class="site-nav__item">
-              <a class="site-nav__link" href="reviews.html">Отзывы</a>   
-          </li>
-          <li class="site-nav__item">
-              <a class="site-nav__link" href="order.html">Заявка</a> 
-          </li>
-          <li class="site-nav__item">
-              <a class="site-nav__link" href="questions.html">Часто задаваемые вопросы</a>   
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="contacts.html">Контакты</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
+<header class="site-header">
+  <div class="topbar">
+    Ближайший мастер-класс: 12 ноября, «Объёмный цветок» ·
+    <a href="order.html">Занять место →</a>
+  </div>
+  <nav class="navbar navbar-expand-lg" aria-label="Основная навигация">
+    <div class="container">
+      <a class="navbar-brand site-header__logo" href="index.html"><span class="site-header__star">✦</span>Фактура</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+              aria-controls="mainNavbar" aria-expanded="false" aria-label="Переключить навигацию">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalog.html">Мастер-классы</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#gallery">Галерея</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ещё</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="catalog.html">Все мастер-классы</a></li>
+              <li><a class="dropdown-item" href="product.html">О мастер-классе</a></li>
+              <li><a class="dropdown-item" href="index.html#popular">Популярное</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="order.html">Оформить запись</a></li>
+            </ul>
           </li>
         </ul>
-      </nav>
+        <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="order.html">Записаться</a>
+      </div>
     </div>
-  </header>
-<main>
-    <main class="container">
-  
-  <!-- Хлебные крошки -->
-  <nav class="breadcrumbs">
-    <a href="#" class="breadcrumbs__link">Главная</a> / 
-    <a href="#" class="breadcrumbs__link">Каталог</a> / 
-    <span class="breadcrumbs__current">Товары</span>
   </nav>
+</header>
 
-  <!-- Заголовок страницы -->
-  <h1 class="page-title">Товары подробно</h1>
-  <p class="page-subtitle">Описание, цена и основные характеристики товаров учебного каталога.</p>
+  <main class="container my-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item"><a href="catalog.html">Мастер-классы</a></li>
+        <li class="breadcrumb-item active" aria-current="page" id="p-crumb">Мастер-класс</li>
+      </ol>
+    </nav>
 
-    <!-- Список товаров -->
-    <div class="product-list">
+    <div class="row g-4">
+      <div class="col-12 col-lg-6">
+        <div class="card product-photo shadow-sm">
+          <img id="p-img" class="card-img-top" src="images/pic1.png" alt="">
+        </div>
+      </div>
 
-    <!-- Товар 1: Клавиатура -->
-    <article class="product-row">
-    <div class="product-row__image-wrapper">
-        <div class="product-row__image product-row__image--lamp">
-        <span>⌨️</span> <!-- Имитация картинки -->
-        </div>
-    </div>
-    <div class="product-row__content">
-        <span class="product-row__category">Периферия</span>
-        <h3 class="product-row__title">Клавиатура</h3>
-        <p class="product-row__desc">Механическая клавиатура с подсветкой и тихими переключателями. Идеальна для работы и учебы.</p>
-        
-        <div class="product-row__footer">
-        <p class="product-row__price">Цена: 3500 руб.</p>
-        <a href="order.html" class="button button--primary">Оформить заявку</a>
-        </div>
-    </div>
-    </article>
+      <div class="col-12 col-lg-6">
+        <span class="badge rounded-pill product-card__badge--static mb-3" id="p-badge" hidden></span>
+        <h1 class="h2" id="p-title">Мастер-класс</h1>
+        <p class="lead text-muted" id="p-desc"></p>
+        <p class="fs-3 fw-bold product-price" id="p-price"></p>
 
-    <!-- Товар 2: Мышка -->
-    <article class="product-row">
-    <div class="product-row__image-wrapper">
-        <div class="product-row__image product-row__image--notebook">
-        <span>🖱️</span>
+        <div class="d-flex flex-wrap gap-2 mb-4">
+          <a class="btn btn-primary btn-lg" id="p-order" href="order.html">Записаться на занятие</a>
+          <button class="btn btn-outline-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" id="p-quick">Быстрая заявка</button>
         </div>
-    </div>
-    <div class="product-row__content">
-        <span class="product-row__category">Периферия</span>
-        <h3 class="product-row__title">Мышка</h3>
-        <p class="product-row__desc">Беспроводная оптическая мышь с регулировкой чувствительности. Эргономичный корпус.</p>
-        
-        <div class="product-row__footer">
-        <p class="product-row__price">Цена: 1200 руб.</p>
-        <a href="order.html" class="button button--primary">Оформить заявку</a>
-        </div>
-    </div>
-    </article>
 
-    <!-- Товар 3: Зарядное устройство -->
-    <article class="product-row">
-    <div class="product-row__image-wrapper">
-        <div class="product-row__image product-row__image--backpack">
-        <span>🔌</span>
+        <div class="alert alert-info" role="alert">
+          Все материалы включены в стоимость. Готовую картину вы забираете домой в тот же день.
         </div>
+        <a class="btn btn-link px-0" href="catalog.html">← Назад в каталог</a>
+      </div>
     </div>
-    <div class="product-row__content">
-        <span class="product-row__category">Аксессуары</span>
-        <h3 class="product-row__title">Зарядное устройство для ноутбука</h3>
-        <p class="product-row__desc">Компактный блок питания 65 Вт с защитой от перегрева. Подходит для большинства ноутбуков.</p>
-        
-        <div class="product-row__footer">
-        <p class="product-row__price">Цена: 2800 руб.</p>
-        <a href="order.html" class="button button--primary">Оформить заявку</a>
-        </div>
-    </div>
-    </article>
-        <!-- Товар: Наушники -->
-    <article class="product-row">
-    <div class="product-row__image-wrapper">
-        <div class="product-row__image" style="background-color: #e8eaf6;">
-        <span>🎧</span>
-        </div>
-    </div>
-    <div class="product-row__content">
-        <span class="product-row__category">Аудио</span>
-        <h3 class="product-row__title">Наушники с микрофоном</h3>
-        <p class="product-row__desc">Накладные наушники с шумоподавляющим микрофоном. Подходят для учёбы, звонков и прослушивания музыки.</p>
-        <div class="product-row__footer">
-        <p class="product-row__price">Цена: 3200 руб.</p>
-        <a href="order.html" class="button button--primary">Оформить заявку</a>
-        </div>
-    </div>
-    </article>
 
-    <!-- Товар: Веб-камера -->
-    <article class="product-row">
-    <div class="product-row__image-wrapper">
-        <div class="product-row__image" style="background-color: #e0f7fa;">
-        <span>📷</span>
-        </div>
-    </div>
-    <div class="product-row__content">
-        <span class="product-row__category">Периферия</span>
-        <h3 class="product-row__title">Веб-камера Full HD</h3>
-        <p class="product-row__desc">Веб-камера с разрешением 1080p и встроенным микрофоном. Идеальна для онлайн-занятий и видеозвонков.</p>
-        <div class="product-row__footer">
-        <p class="product-row__price">Цена: 2400 руб.</p>
-        <a href="order.html" class="button button--primary">Оформить заявку</a>
-        </div>
-    </div>
-    </article>
+    <section class="mt-5">
+      <h2 class="h4 mb-3">Характеристики</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle product-table">
+          <tbody>
+            <tr><th scope="row">Уровень</th><td id="t-level"></td></tr>
+            <tr><th scope="row">Длительность</th><td id="t-time"></td></tr>
+            <tr><th scope="row">Стоимость</th><td id="t-price"></td></tr>
+            <tr><th scope="row">Группа</th><td>до 6 человек</td></tr>
+            <tr><th scope="row">Ведёт</th><td id="t-teacher"></td></tr>
+            <tr><th scope="row">Что понадобится</th><td><ul class="mb-0 ps-3" id="t-materials"></ul></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    <!-- Товар: Коврик для мыши -->
-    <article class="product-row">
-    <div class="product-row__image-wrapper">
-        <div class="product-row__image" style="background-color: #fce4ec;">
-        <span>🖱️</span>
+    <section class="mt-5">
+      <h2 class="h4 mb-3">Частые вопросы</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq0" aria-expanded="true" aria-controls="faq0">Нужен ли опыт, чтобы прийти на мастер-класс?</button>
+          </h3>
+          <div id="faq0" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Нет. Мы показываем каждый шаг: подойдёт, даже если вы впервые держите мастихин.</div>
+          </div>
         </div>
-    </div>
-    <div class="product-row__content">
-        <span class="product-row__category">Аксессуары</span>
-        <h3 class="product-row__title">Коврик для мыши</h3>
-        <p class="product-row__desc">Большой тканевый коврик с прошитыми краями. Не скользит и защищает стол от царапин.</p>
-        <div class="product-row__footer">
-        <p class="product-row__price">Цена: 600 руб.</p>
-        <a href="order.html" class="button button--primary">Оформить заявку</a>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">Нужно ли что-то брать с собой?</button>
+          </h3>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Нет, все материалы включены в стоимость. Одежду лучше выбрать такую, которую не жалко испачкать краской.</div>
+          </div>
         </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">Заберу ли я картину в тот же день?</button>
+          </h3>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Да, готовую работу вы забираете с собой в тот же день. Текстурная паста полностью высыхает около суток, поэтому до утра картину лучше держать горизонтально.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Как оплатить занятие?</button>
+          </h3>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Оплата происходит в студии. Онлайн достаточно оставить заявку, а мы подтвердим дату и время по телефону.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">Сколько человек в группе?</button>
+          </h3>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">В группе до 6 человек, поэтому внимание уделяется каждому.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- МОДАЛЬНОЕ ОКНО БЫСТРОЙ ЗАЯВКИ (Bootstrap modal) -->
+  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="orderModalLabel">Быстрая заявка</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-success d-none" id="modal-success" role="alert">
+            Спасибо! Заявка принята, мы свяжемся с вами и подтвердим запись.
+          </div>
+          <form id="modal-form" novalidate>
+            <p class="text-muted">Мастер-класс: <strong id="modal-product">—</strong></p>
+            <div class="mb-3">
+              <label for="modal-name" class="form-label">Имя *</label>
+              <input id="modal-name" name="name" type="text" class="form-control" minlength="2" required>
+              <div class="invalid-feedback">Введите имя (минимум 2 буквы)</div>
+            </div>
+            <div class="mb-3">
+              <label for="modal-phone" class="form-label">Телефон *</label>
+              <input id="modal-phone" name="phone" type="tel" class="form-control" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
+              <div class="invalid-feedback">Формат: +7 (900) 000-00-00</div>
+            </div>
+            <div class="form-check mb-1">
+              <input id="modal-agree" class="form-check-input" type="checkbox" required>
+              <label class="form-check-label" for="modal-agree">Согласен на обработку данных</label>
+              <div class="invalid-feedback">Нужно согласие на обработку данных</div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="submit" form="modal-form" class="btn btn-primary" id="modal-send">Отправить</button>
+        </div>
+      </div>
     </div>
-    </article>
   </div>
 
-    <section class="comparison-section">
-    <h2>Сравнение товаров</h2>
-    <h3>Основные характеристики товаров</h3>
-    
-    <div class="table-wrapper">
-        <table class="comparison-table">
-        <thead>
-            <tr>
-            <th>Характеристика</th>
-            <th>Клавиатура</th>
-            <th>Мышка</th>
-            <th>Зарядное устройство</th>
-            <th>Наушники</th>
-            <th>Веб-камера</th>
-            <th>Коврик для мыши</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>Категория</td>
-            <td>Периферия</td>
-            <td>Периферия</td>
-            <td>Аксессуары</td>
-            <td>Аудио</td>
-            <td>Периферия</td>
-            <td>Аксессуары</td>
-            </tr>
-            <tr>
-            <td>Применение</td>
-            <td>Набор текста</td>
-            <td>Управление курсором</td>
-            <td>Питание ноутбука</td>
-            <td>Звук и связь</td>
-            <td>Видеосвязь</td>
-            <td>Комфорт при работе</td>
-            </tr>
-            <tr>
-            <td>Особенность</td>
-            <td>Механические переключатели</td>
-            <td>Беспроводная, эргономичная</td>
-            <td>65 Вт, защита от перегрева</td>
-            <td>Шумоподавляющий микрофон</td>
-            <td>1080p, встроенный микрофон</td>
-            <td>80×30 см, нескользящий</td>
-            </tr>
-            <tr>
-            <td>Цена</td>
-            <td>3500 руб.</td>
-            <td>1200 руб.</td>
-            <td>2800 руб.</td>
-            <td>3200 руб.</td>
-            <td>2400 руб.</td>
-            <td>600 руб.</td>
-            </tr>
-        </tbody>
-        </table>
+  <!-- ПОДВАЛ -->
+  <footer class="site-footer">
+    <div class="footer-container row gx-0 gy-4">
+      
+      <!-- Колонка 1: Логотип и описание -->
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
+        <a href="index.html" class="footer-logo">Фактура</a>
+        <p class="footer-desc">
+          Творческая студия объёмных картин. Мастер-классы по текстурной живописи, работа с пастой, мастихином и поталью.
+        </p>
+      </div>
+
+      <!-- Колонка 2: Навигация -->
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
+        <h4>Навигация</h4>
+        <ul class="footer-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Мастер-классы</a></li>
+          <li><a href="index.html#gallery">Галерея</a></li>
+          <li><a href="order.html">Запись</a></li>
+        </ul>
+      </div>
+
+      <!-- Колонка 3: Контакты -->
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
+        <h4>Контакты</h4>
+        <div class="footer-contact-item">
+          <a href="mailto:info@faktura.ru">info@faktura.ru</a>
+        </div>
+        <div class="footer-contact-item">
+          <a href="tel:+79000000000">+7 (900) 000-00-00</a>
+        </div>
+        <div class="footer-contact-item">
+          г. Москва, ул. Творческая, 15
+        </div>
+      </div>
+
+      <!-- Колонка 4: Режим работы -->
+      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
+        <h4>Время работы</h4>
+        <div class="footer-contact-item">Ежедневно</div>
+        <div class="footer-contact-item">10:00 – 21:00</div>
+      </div>
+
     </div>
-    </section>
-  <!-- Блок помощи -->
-  <section class="help-banner">
-    <h3>Нужна помощь с выбором?</h3>
-    <p>Выберите товар в форме заявки или свяжитесь с нами через страницу контактов.</p>
-    <a href="contacts.html" class="help-banner__link">Перейти к контактам</a>
-  </section>
 
+    <!-- Нижняя строка с копирайтом -->
+    <div class="footer-bottom">
+      <p style="margin: 0;">&copy; 2026 Студия «Фактура». Учебный проект. Все права защищены.</p>
+    </div>
+  </footer>
 
-</main>
-   
-
-
-  
-        <footer id="contacts">
-            <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-            <p>Дисциплина: Фронтенд и бэкенд разработка</p>
-        </footer>
-
-    </main>
-
-    <button class="scroll-top" type="button" aria-label="Наверх">↑</button>
-    <script src="js/scroll-top.js"></script>
+  <button class="scroll-top" type="button" aria-label="Наверх">↑</button>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/scroll-top.js"></script>
+  <script src="js/product.js"></script>
+  <script src="js/order-modal.js"></script>
 </body>
 </html>

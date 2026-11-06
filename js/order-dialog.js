@@ -1,96 +1,46 @@
+/* Быстрая заявка в Bootstrap-модальном окне (#orderModal) */
 document.addEventListener('DOMContentLoaded', () => {
-  const dialog = document.getElementById('order-dialog');
-  const form = document.getElementById('order-form');
-  const select = document.getElementById('topic');
-  const chipsBox = document.getElementById('mk-chips');
-  if (!dialog || !form || !select || !chipsBox) return;
+  const modalEl = document.getElementById('orderModal');
+  if (!modalEl) return;
 
-  /* ---------- 1. чипы мастер-классов ---------- */
-  const chips = [];
+  const form = document.getElementById('modal-form');
+  const product = document.getElementById('modal-product');
+  const success = document.getElementById('modal-success');
+  const sendBtn = document.getElementById('modal-send');
+  const phone = document.getElementById('modal-phone');
 
-  Array.from(select.options).forEach((opt) => {
-    if (!opt.value) return;
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'mk-chip';
-    chip.dataset.value = opt.value;
-    chip.setAttribute('role', 'radio');
-    chip.textContent = opt.textContent;
-    chip.addEventListener('click', () => {
-      select.value = opt.value;
-      select.dispatchEvent(new Event('change', { bubbles: true }));
-      syncChips();
-    });
-    chipsBox.appendChild(chip);
-    chips.push(chip);
-    /* ---------- счётчик символов комментария ---------- */
-    const comment = document.getElementById('order-comment');
-    const commentCount = document.getElementById('comment-count');
-    if (comment && commentCount) {
-    const updateCount = () => { commentCount.textContent = comment.value.length; };
-    comment.addEventListener('input', updateCount);
-    form.addEventListener('reset', () => setTimeout(updateCount, 0));
-    updateCount();
-}
-  });
-
-  function syncChips() {
-    chips.forEach((chip) => {
-      const on = chip.dataset.value === select.value;
-      chip.classList.toggle('is-active', on);
-      chip.setAttribute('aria-checked', on ? 'true' : 'false');
-    });
-  }
-
-  // main.js выбирает мастер-класс при клике на «Записаться»,
-  // поэтому обновляем чипы каждый раз, когда окно открывается
-  new MutationObserver(() => {
-    if (dialog.open) {
-      syncChips();
-      dialog.scrollTop = 0;
-    }
-  }).observe(dialog, { attributes: true, attributeFilter: ['open'] });
-
-  form.addEventListener('reset', () => setTimeout(syncChips, 0));
-  syncChips();
-
-  /* ---------- 2. счётчик ---------- */
-  const guests = document.getElementById('guests');
-  document.querySelectorAll('.counter__btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const min = Number(guests.min) || 1;
-      const max = Number(guests.max) || 6;
-      const next = Number(guests.value || min) + Number(btn.dataset.step);
-      guests.value = Math.min(max, Math.max(min, next));
-      guests.dispatchEvent(new Event('input', { bubbles: true }));
-    });
-  });
-
-  /* ---------- 3. сообщение об успехе в окне ---------- */
-  const oldMessage = document.getElementById('success-message');
-
-  function showSuccess() {
-    dialog.classList.add('is-sent');
-    if (!dialog.open) dialog.showModal();
-  }
-
-  function closeSuccess() {
-    dialog.close();
-    dialog.classList.remove('is-sent');
+  /* при открытии подставляем название мастер-класса из кнопки */
+  modalEl.addEventListener('show.bs.modal', (e) => {
+    const btn = e.relatedTarget;
+    product.textContent = (btn && btn.dataset.mk) || '—';
     form.reset();
-    syncChips();
-  }
+    form.classList.remove('was-validated');
+    form.hidden = false;
+    sendBtn.hidden = false;
+    success.classList.add('d-none');
+  });
 
-  // когда main.js показывает старое сообщение — прячем его и показываем наше
-  if (oldMessage) {
-    new MutationObserver(() => {
-      if (!oldMessage.hidden) {
-        oldMessage.hidden = true;
-        showSuccess();
-      }
-    }).observe(oldMessage, { attributes: true, attributeFilter: ['hidden'] });
-  }
+  /* маска телефона */
+  phone.addEventListener('input', () => {
+    let d = phone.value.replace(/\D/g, '');
+    if (d.startsWith('7') || d.startsWith('8')) d = d.slice(1);
+    d = d.slice(0, 10);
+    let out = '+7';
+    if (d.length > 0) out += ' (' + d.slice(0, 3);
+    if (d.length >= 3) out += ')';
+    if (d.length > 3) out += ' ' + d.slice(3, 6);
+    if (d.length > 6) out += '-' + d.slice(6, 8);
+    if (d.length > 8) out += '-' + d.slice(8, 10);
+    phone.value = d.length ? out : '';
+  });
 
-  document.getElementById('success-close').addEventListener('click', closeSuccess);
-  dialog.addEventListener('close', () => dialog.classList.remove('is-sent'));
+  /* отправка с проверкой */
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.classList.add('was-validated');
+    if (!form.checkValidity()) return;
+    form.hidden = true;
+    sendBtn.hidden = true;
+    success.classList.remove('d-none');
+  });
 });

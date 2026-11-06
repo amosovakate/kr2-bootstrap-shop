@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $('p-topic-error').classList.toggle('is-shown', !select.value);
 
     if (!form.checkValidity()) {
-      const bad = form.querySelector(':invalid:not(select)') || chipsBox;
+      const bad = form.querySelector(':invalid:not(#p-topic)') || chipsBox;
       bad.scrollIntoView({ behavior: 'smooth', block: 'center' });
       if (bad.focus) bad.focus({ preventScroll: true });
       return;
