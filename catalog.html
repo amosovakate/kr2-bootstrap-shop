@@ -22,19 +22,33 @@
     Ближайший мастер-класс: 12 ноября, «Объёмный цветок» ·
     <a href="order.html">Занять место →</a>
   </div>
-  <div class="site-header__inner">
-    <a class="site-header__logo" href="index.html"><span class="site-header__star">✦</span>Фактура</a>
-    <div class="site-header__right">
-      <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="site-nav__list">
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Мастер-классы</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html#gallery">Галерея</a></li>
+  <nav class="navbar navbar-expand-lg" aria-label="Основная навигация">
+    <div class="container">
+      <a class="navbar-brand site-header__logo" href="index.html"><span class="site-header__star">✦</span>Фактура</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+              aria-controls="mainNavbar" aria-expanded="false" aria-label="Переключить навигацию">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalog.html">Мастер-классы</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#gallery">Галерея</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ещё</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="catalog.html">Все мастер-классы</a></li>
+              <li><a class="dropdown-item" href="product.html">О мастер-классе</a></li>
+              <li><a class="dropdown-item" href="index.html#popular">Популярное</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="order.html">Оформить запись</a></li>
+            </ul>
+          </li>
         </ul>
-      </nav>
-      <a class="button button--primary" href="order.html">Записаться</a>
+        <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="order.html">Записаться</a>
+      </div>
     </div>
-  </div>
+  </nav>
 </header>
 
 
@@ -44,10 +58,17 @@
       <a href="index.html" class="breadcrumbs__link">Главная</a> / <span>Мастер-классы</span>
     </nav>
 
-    <!-- Убрали лишнюю секцию, чтобы заголовок был ближе к фильтрам -->
-    <div class="container mt-4 mb-5">
-      <h1 class="page-title">Мастер-классы</h1>
-      <p class="page-subtitle">Выберите занятие по уровню и технике. Все материалы включены в стоимость.</p>
+    <div class="container mt-4 mb-4" style="padding-inline: 1.25rem;">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+        <div>
+          <h1 class="page-title">Мастер-классы</h1>
+          <p class="page-subtitle mb-0">Выберите занятие по уровню и технике. Все материалы включены в стоимость.</p>
+        </div>
+        <a class="btn btn-outline-primary" href="order.html">Выбрать дату и время →</a>
+      </div>
+      <div class="alert alert-info mb-0" role="alert">
+        Подсказка: воспользуйтесь фильтрами слева, чтобы подобрать мастер-класс по уровню и цене.
+      </div>
     </div>
 
     <section class="section container" style="padding-top: 0;">
@@ -60,18 +81,18 @@
         <form class="filters-form" action="#" method="get" id="filter-form">
           <fieldset>
             <legend>Уровень</legend>
-            <label><input type="checkbox" name="level" value="beginner"> Для начинающих</label>
-            <label><input type="checkbox" name="level" value="middle"> Средний</label>
-            <label><input type="checkbox" name="level" value="advanced"> Продвинутый</label>
+            <label><input class="form-check-input" type="checkbox" name="level" value="beginner"> Для начинающих</label>
+            <label><input class="form-check-input" type="checkbox" name="level" value="middle"> Средний</label>
+            <label><input class="form-check-input" type="checkbox" name="level" value="advanced"> Продвинутый</label>
           </fieldset>
           <fieldset>
             <legend>Цена</legend>
             <label for="price-from">От</label>
-            <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
+            <input id="price-from" name="price-from" class="form-control" type="number" min="0" placeholder="0">
             <label for="price-to">До</label>
-            <input id="price-to" name="price-to" type="number" min="0" placeholder="4000">
+            <input id="price-to" name="price-to" class="form-control" type="number" min="0" placeholder="4000">
           </fieldset>
-          <button class="button button--primary" type="submit">Применить</button>
+          <button class="btn btn-primary" type="submit">Применить</button>
         </form>
       </div>
       </aside>
@@ -85,7 +106,7 @@
         <div class="row g-4" id="mk-grid">
 
           <!-- МК: Новогодний шар -->
-          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card"
+          <div class="col-12 col-md-6 mk-col"><article class="card product-card h-100 mk-card"
                   data-title="Новогодний шар"
                   data-desc="Рельефный ёлочный шар с золотой поталью. Вы создадите уникальное украшение на ёлку или подарок близким."
                   data-level="beginner"
@@ -93,21 +114,22 @@
                   data-price="1800"
                   data-materials="Деревянная основа-шар, текстурная паста, мастихин, акрил, поталь, лента"
                   data-img="images/pic8.png">
-            <span class="product-card__badge product-card__badge--ny">❄ Зимняя новинка</span>
-            <div class="product-card__image-wrapper">
-              <img src="images/pic8.png" alt="Новогодний шар" class="product-card__image">
-            </div>
-            <h3 class="product-card__title">Новогодний шар</h3>
-            <p class="product-card__description">Рельефный ёлочный шар с золотой поталью.</p>
+            <span class="badge rounded-pill product-card__badge product-card__badge--ny">❄ Зимняя новинка</span>
+            <img src="images/pic8.png" alt="Новогодний шар" class="card-img-top product-card__image">
+            <div class="card-body d-flex flex-column">
+            <h3 class="card-title product-card__title">Новогодний шар</h3>
+            <p class="card-text product-card__description">Рельефный ёлочный шар с золотой поталью.</p>
             <p class="product-card__meta">Для начинающих · 2 часа</p>
             <p class="product-card__price">1 800 ₽</p>
-            <div class="product-card__actions">
-              <button class="button button--primary open-details-btn" type="button">Подробнее</button>
-            </div>
+            <div class="product-card__actions d-flex flex-wrap gap-2">
+                <a class="btn btn-primary" href="product.html?mk=newyear">Подробнее</a>
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-mk="Новогодний шар">Заказать</button>
+              </div>
+          </div>
           </article></div>
 
           <!-- МК 1 -->
-          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="card product-card h-100 mk-card" 
                    data-title="Объёмный цветок текстурной пастой" 
                    data-desc="Создадим рельефный 3D-цветок мастихином, добавим поталь для акцента. Вы научитесь работать с текстурной пастой и создавать объёмные лепестки." 
                    data-level="beginner" 
@@ -115,21 +137,22 @@
                    data-price="2500"
                    data-materials="Текстурная паста, мастихин, холст 30х30, акрил, поталь, кисти"
                    data-img="images/pic1.png">
-            <span class="product-card__badge product-card__badge--hit">Хит</span>
-            <div class="product-card__image-wrapper">
-              <img src="images/pic1.png" alt="Объёмный цветок" class="product-card__image">
-            </div>
-            <h3 class="product-card__title">Объёмный цветок текстурной пастой</h3>
-            <p class="product-card__description">Рельефный 3D-цветок мастихином + поталь.</p>
+            <span class="badge rounded-pill product-card__badge product-card__badge--hit">Хит</span>
+            <img src="images/pic1.png" alt="Объёмный цветок" class="card-img-top product-card__image">
+            <div class="card-body d-flex flex-column">
+            <h3 class="card-title product-card__title">Объёмный цветок текстурной пастой</h3>
+            <p class="card-text product-card__description">Рельефный 3D-цветок мастихином + поталь.</p>
             <p class="product-card__meta">Для начинающих · 3 часа</p>
             <p class="product-card__price">2 500 ₽</p>
-            <div class="product-card__actions">
-              <button class="button button--primary open-details-btn" type="button">Подробнее</button>
-            </div>
+            <div class="product-card__actions d-flex flex-wrap gap-2">
+                <a class="btn btn-primary" href="product.html?mk=flower">Подробнее</a>
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-mk="Объёмный цветок текстурной пастой">Заказать</button>
+              </div>
+          </div>
           </article></div>
 
           <!-- МК 2 -->
-          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="card product-card h-100 mk-card" 
                    data-title="Абстракция мастихином" 
                    data-desc="Свободные мазки, работа с цветом и фактурой. Научитесь чувствовать мастихин и создавать динамичные абстрактные композиции." 
                    data-level="beginner" 
@@ -137,20 +160,21 @@
                    data-price="2200"
                    data-materials="Текстурная паста, мастихин, холст 40х40, акриловые краски"
                    data-img="images/pic2.png">
-            <div class="product-card__image-wrapper">
-              <img src="images/pic2.png" alt="Абстракция" class="product-card__image">
-            </div>
-            <h3 class="product-card__title">Абстракция мастихином</h3>
-            <p class="product-card__description">Свободные мазки, работа с цветом и фактурой.</p>
+            <img src="images/pic2.png" alt="Абстракция" class="card-img-top product-card__image">
+            <div class="card-body d-flex flex-column">
+            <h3 class="card-title product-card__title">Абстракция мастихином</h3>
+            <p class="card-text product-card__description">Свободные мазки, работа с цветом и фактурой.</p>
             <p class="product-card__meta">Для начинающих · 2,5 часа</p>
             <p class="product-card__price">2 200 ₽</p>
-            <div class="product-card__actions">
-              <button class="button button--primary open-details-btn" type="button">Подробнее</button>
-            </div>
+            <div class="product-card__actions d-flex flex-wrap gap-2">
+                <a class="btn btn-primary" href="product.html?mk=abstract">Подробнее</a>
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-mk="Абстракция мастихином">Заказать</button>
+              </div>
+          </div>
           </article></div>
 
           <!-- МК 3 -->
-          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="card product-card h-100 mk-card" 
                    data-title="Морской рельеф с песком" 
                    data-desc="Текстурная паста + песок + акрил. Мы создадим объёмную морскую гладь, которая будет переливаться на свету." 
                    data-level="middle" 
@@ -158,20 +182,21 @@
                    data-price="2800"
                    data-materials="Текстурная паста, морской песок, мастихин, холст 40х30, акрил"
                    data-img="images/pic3.png">
-            <div class="product-card__image-wrapper">
-              <img src="images/pic3.png" alt="Морской рельеф" class="product-card__image">
-            </div>
-            <h3 class="product-card__title">Морской рельеф с песком</h3>
-            <p class="product-card__description">Текстурная паста + песок + акрил.</p>
+            <img src="images/pic3.png" alt="Морской рельеф" class="card-img-top product-card__image">
+            <div class="card-body d-flex flex-column">
+            <h3 class="card-title product-card__title">Морской рельеф с песком</h3>
+            <p class="card-text product-card__description">Текстурная паста + песок + акрил.</p>
             <p class="product-card__meta">Средний уровень · 3 часа</p>
             <p class="product-card__price">2 800 ₽</p>
-            <div class="product-card__actions">
-              <button class="button button--primary open-details-btn" type="button">Подробнее</button>
-            </div>
+            <div class="product-card__actions d-flex flex-wrap gap-2">
+                <a class="btn btn-primary" href="product.html?mk=sea">Подробнее</a>
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-mk="Морской рельеф с песком">Заказать</button>
+              </div>
+          </div>
           </article></div>
 
           <!-- МК 4 -->
-          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="card product-card h-100 mk-card" 
                    data-title="Золотая поталь" 
                    data-desc="Интерьерная картина с листовой поталью. Узнаете секреты золочения и создадите роскошную фактуру." 
                    data-level="middle" 
@@ -179,20 +204,21 @@
                    data-price="3200"
                    data-materials="Текстурная паста, клей для потали, листовая поталь, мастихин, холст 40х50"
                    data-img="images/pic4.png">
-            <div class="product-card__image-wrapper">
-              <img src="images/pic4.png" alt="Золотая поталь" class="product-card__image">
-            </div>
-            <h3 class="product-card__title">Золотая поталь</h3>
-            <p class="product-card__description">Интерьерная картина с листовой поталью.</p>
+            <img src="images/pic4.png" alt="Золотая поталь" class="card-img-top product-card__image">
+            <div class="card-body d-flex flex-column">
+            <h3 class="card-title product-card__title">Золотая поталь</h3>
+            <p class="card-text product-card__description">Интерьерная картина с листовой поталью.</p>
             <p class="product-card__meta">Средний уровень · 3,5 часа</p>
             <p class="product-card__price">3 200 ₽</p>
-            <div class="product-card__actions">
-              <button class="button button--primary open-details-btn" type="button">Подробнее</button>
-            </div>
+            <div class="product-card__actions d-flex flex-wrap gap-2">
+                <a class="btn btn-primary" href="product.html?mk=gilding">Подробнее</a>
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-mk="Золотая поталь">Заказать</button>
+              </div>
+          </div>
           </article></div>
 
           <!-- МК 5 -->
-          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="card product-card h-100 mk-card" 
                    data-title="Минимализм: текстура и монохром" 
                    data-desc="Сдержанная палитра, игра света и тени на рельефе. Идеально для создания современного интерьерного искусства." 
                    data-level="beginner" 
@@ -200,20 +226,21 @@
                    data-price="1900"
                    data-materials="Текстурная паста, шпатель, холст 30х40, акрил (белый, черный, серый)"
                    data-img="images/pic5.jpg">
-            <div class="product-card__image-wrapper">
-              <img src="images/pic5.jpg" alt="Минимализм" class="product-card__image">
-            </div>
-            <h3 class="product-card__title">Минимализм: текстура и монохром</h3>
-            <p class="product-card__description">Сдержанная палитра, игра света и тени.</p>
+            <img src="images/pic5.jpg" alt="Минимализм" class="card-img-top product-card__image">
+            <div class="card-body d-flex flex-column">
+            <h3 class="card-title product-card__title">Минимализм: текстура и монохром</h3>
+            <p class="card-text product-card__description">Сдержанная палитра, игра света и тени.</p>
             <p class="product-card__meta">Для начинающих · 2 часа</p>
             <p class="product-card__price">1 900 ₽</p>
-            <div class="product-card__actions">
-              <button class="button button--primary open-details-btn" type="button">Подробнее</button>
-            </div>
+            <div class="product-card__actions d-flex flex-wrap gap-2">
+                <a class="btn btn-primary" href="product.html?mk=minimal">Подробнее</a>
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-mk="Минимализм: текстура и монохром">Заказать</button>
+              </div>
+          </div>
           </article></div>
 
           <!-- МК 6 -->
-          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card" 
+          <div class="col-12 col-md-6 mk-col"><article class="card product-card h-100 mk-card" 
                    data-title="Фактурный пейзаж" 
                    data-desc="Объёмные горы, небо и вода. Комплексная работа с текстурной пастой и мастихином на большом холсте." 
                    data-level="advanced" 
@@ -221,20 +248,21 @@
                    data-price="3000"
                    data-materials="Текстурная паста, мастихины (набор), холст 50х60, акрил, губка"
                    data-img="images/pic6.png">
-            <div class="product-card__image-wrapper">
-              <img src="images/pic6.png" alt="Фактурный пейзаж" class="product-card__image">
-            </div>
-            <h3 class="product-card__title">Фактурный пейзаж</h3>
-            <p class="product-card__description">Объёмные горы, небо и вода.</p>
+            <img src="images/pic6.png" alt="Фактурный пейзаж" class="card-img-top product-card__image">
+            <div class="card-body d-flex flex-column">
+            <h3 class="card-title product-card__title">Фактурный пейзаж</h3>
+            <p class="card-text product-card__description">Объёмные горы, небо и вода.</p>
             <p class="product-card__meta">Продвинутый · 4 часа</p>
             <p class="product-card__price">3 000 ₽</p>
-            <div class="product-card__actions">
-              <button class="button button--primary open-details-btn" type="button">Подробнее</button>
-            </div>
+            <div class="product-card__actions d-flex flex-wrap gap-2">
+                <a class="btn btn-primary" href="product.html?mk=landscape">Подробнее</a>
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-mk="Фактурный пейзаж">Заказать</button>
+              </div>
+          </div>
           </article></div>
 
           <!-- МК: Пустыня и дюны -->
-          <div class="col-12 col-md-6 mk-col"><article class="product-card h-100 mk-card"
+          <div class="col-12 col-md-6 mk-col"><article class="card product-card h-100 mk-card"
                   data-title="Пустыня и дюны"
                   data-desc="Тёплая терракотовая палитра, песок и мягкие волны рельефа. Спокойная работа, которая отлично подходит для первого раза."
                   data-level="beginner"
@@ -242,16 +270,17 @@
                   data-price="2300"
                   data-materials="Текстурная паста, декоративный песок, мастихин, холст 40х30, акрил"
                   data-img="images/pic7.png">
-            <div class="product-card__image-wrapper">
-              <img src="images/pic7.png" alt="Пустыня и дюны" class="product-card__image">
-            </div>
-            <h3 class="product-card__title">Пустыня и дюны</h3>
-            <p class="product-card__description">Терракотовая палитра, песок и мягкие волны.</p>
+            <img src="images/pic7.png" alt="Пустыня и дюны" class="card-img-top product-card__image">
+            <div class="card-body d-flex flex-column">
+            <h3 class="card-title product-card__title">Пустыня и дюны</h3>
+            <p class="card-text product-card__description">Терракотовая палитра, песок и мягкие волны.</p>
             <p class="product-card__meta">Для начинающих · 2,5 часа</p>
             <p class="product-card__price">2 300 ₽</p>
-            <div class="product-card__actions">
-              <button class="button button--primary open-details-btn" type="button">Подробнее</button>
-            </div>
+            <div class="product-card__actions d-flex flex-wrap gap-2">
+                <a class="btn btn-primary" href="product.html?mk=desert">Подробнее</a>
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-mk="Пустыня и дюны">Заказать</button>
+              </div>
+          </div>
           </article></div>
 
         </div>
@@ -259,45 +288,46 @@
       </div>
     </section>
 
-    <!-- МОДАЛЬНОЕ ОКНО ПОДРОБНОСТЕЙ -->
-    <dialog id="details-dialog">
-      <!-- Картинка МК -->
-      <img id="dialog-img" src="" alt="Изображение мастер-класса" class="dialog-image">
-      
-      <div class="dialog-content">
-        <h2 id="dialog-title">Название МК</h2>
-        <p id="dialog-desc"></p>
-        
-        <div class="dialog-info-grid">
-          <div class="dialog-info-item">
-            <span>Уровень</span>
-            <p id="dialog-level"></p>
-          </div>
-          <div class="dialog-info-item">
-            <span>Длительность</span>
-            <p id="dialog-time"></p>
-          </div>
-          <div class="dialog-info-item">
-            <span>Цена</span>
-            <p id="dialog-price" style="color: var(--facture-primary-dark); font-size: 1.1rem;"></p>
-          </div>
-        </div>
+  </main>
 
-        <div class="dialog-materials">
-          <h4>Необходимые материалы:</h4>
-          <ul id="dialog-materials-list">
-            <!-- Список подставится через JS -->
-          </ul>
+  <!-- МОДАЛЬНОЕ ОКНО БЫСТРОЙ ЗАЯВКИ (Bootstrap modal) -->
+  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="orderModalLabel">Быстрая заявка</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
         </div>
-
-        <div class="dialog-actions">
-          <button type="button" class="button button--secondary" id="close-details-btn">Закрыть</button>
-          <a href="order.html" class="button button--primary">Записаться</a>
+        <div class="modal-body">
+          <div class="alert alert-success d-none" id="modal-success" role="alert">
+            Спасибо! Заявка принята, мы свяжемся с вами и подтвердим запись.
+          </div>
+          <form id="modal-form" novalidate>
+            <p class="text-muted">Мастер-класс: <strong id="modal-product">—</strong></p>
+            <div class="mb-3">
+              <label for="modal-name" class="form-label">Имя *</label>
+              <input id="modal-name" name="name" type="text" class="form-control" minlength="2" required>
+              <div class="invalid-feedback">Введите имя (минимум 2 буквы)</div>
+            </div>
+            <div class="mb-3">
+              <label for="modal-phone" class="form-label">Телефон *</label>
+              <input id="modal-phone" name="phone" type="tel" class="form-control" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
+              <div class="invalid-feedback">Формат: +7 (900) 000-00-00</div>
+            </div>
+            <div class="form-check mb-1">
+              <input id="modal-agree" class="form-check-input" type="checkbox" required>
+              <label class="form-check-label" for="modal-agree">Согласен на обработку данных</label>
+              <div class="invalid-feedback">Нужно согласие на обработку данных</div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="submit" form="modal-form" class="btn btn-primary" id="modal-send">Отправить</button>
         </div>
       </div>
-    </dialog>
-
-  </main>
+    </div>
+  </div>
 
   <!-- ПОДВАЛ -->
   <footer class="site-footer">
@@ -356,5 +386,6 @@
   <script src="js/scroll-top.js"></script>
   
   <script src="js/catalog.js"></script>
+  <script src="js/order-modal.js"></script>
 </body>
 </html>
