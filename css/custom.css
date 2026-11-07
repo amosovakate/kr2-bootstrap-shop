@@ -2285,7 +2285,7 @@ a:hover {
 
 .order-side__contacts {
   padding: 1.25rem 1.5rem;
-  border-left: 4px solid var(--facture-accent);
+  border-left: 4px solid var(--facture-primary-dark);
   border-radius: 10px;
   background: var(--facture-surface);
   font-size: 0.95rem;
@@ -2504,6 +2504,8 @@ a:hover {
   width: calc(100% - 2.5rem);
   margin: 1.25rem 1.25rem 0;
   aspect-ratio: 4 / 3;
+  height: auto;          /* добавить */
+  flex-shrink: 0;        /* добавить */
   object-fit: cover;
   border-radius: 10px;
   background: var(--facture-surface);
@@ -2788,4 +2790,366 @@ a:hover {
 
 .was-validated .form-check-input:valid ~ .form-check-label {
   color: inherit;
+}
+
+
+/* Слайдер работ на странице «День рождения в мастерской» */
+.works-slide {
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+}
+
+@media (max-width: 575.98px) {
+  .works-slide { aspect-ratio: 4 / 3; }
+}
+
+/* Вкладки-«таблетки» и карточки на странице «День рождения» */
+.party-tabs {
+  --bs-nav-pills-link-active-bg: var(--facture-primary);
+  --bs-nav-pills-link-active-color: #fff;
+  gap: 0.5rem;
+}
+
+.party-tabs .nav-link {
+  color: var(--facture-primary-dark);
+  background: var(--facture-surface);
+  border: 1px solid var(--facture-border);
+  border-radius: 999px;
+  padding: 0.55rem 1.4rem;
+  font-weight: 600;
+}
+
+.party-tabs .nav-link:hover:not(.active) {
+  background: #fff;
+  border-color: var(--facture-primary);
+}
+
+.party-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.1rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--facture-border);
+  border-radius: var(--facture-radius);
+  box-shadow: 0 2px 10px rgba(90, 70, 50, 0.06);
+}
+
+.party-item__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  background: var(--facture-surface);
+  border-radius: 50%;
+}
+
+.party-item__title {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.party-item__text {
+  margin: 0;
+  color: #6b5b4d;
+  font-size: 0.95rem;
+}
+
+.party-step {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px dashed var(--facture-border);
+}
+
+.party-step:last-child { border-bottom: 0; }
+
+.party-step__time {
+  flex-shrink: 0;
+  min-width: 5.5rem;
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--facture-primary-dark);
+  background: var(--facture-surface);
+  border: 1px solid var(--facture-border);
+  border-radius: 999px;
+}
+
+
+
+
+/* Таблица характеристик на странице «День рождения» */
+.spec-card {
+  background: #fff;
+  border: 1px solid var(--facture-border);
+  border-radius: var(--facture-radius);
+  box-shadow: 0 2px 10px rgba(90, 70, 50, 0.06);
+  overflow: hidden;
+}
+
+.spec-table {
+  --bs-table-bg: transparent;
+  --bs-table-hover-bg: rgba(239, 230, 220, 0.5);
+}
+
+.spec-table thead th {
+  padding: 0.9rem 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--facture-primary);
+  border-bottom: 0;
+}
+
+.spec-table tbody th,
+.spec-table tbody td {
+  padding: 0.95rem 1.5rem;
+  border-bottom: 1px solid var(--facture-border);
+}
+
+.spec-table tbody tr:last-child th,
+.spec-table tbody tr:last-child td { border-bottom: 0; }
+
+.spec-table tbody th {
+  width: 35%;
+  font-weight: 600;
+  color: var(--facture-primary-dark);
+  background: var(--facture-surface);
+}
+
+.spec-price {
+  font-weight: 700;
+  color: var(--facture-primary-dark);
+}
+
+
+
+
+
+/* Карточки форматов праздника */
+.plan-card {
+  position: relative;
+  border: 1px solid var(--facture-border);
+  border-radius: var(--facture-radius);
+  box-shadow: 0 2px 10px rgba(90, 70, 50, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(90, 70, 50, 0.14);
+}
+
+.plan-card .card-body { padding: 1.75rem; }
+
+.plan-card--featured {
+  border: 2px solid var(--facture-primary);
+  background: linear-gradient(180deg, var(--facture-surface) 0%, #fff 55%);
+}
+
+.plan-card__badge {
+  position: absolute;
+  top: -0.7rem;
+  right: 1.25rem;
+  padding: 0.4rem 0.9rem;
+  color: #fff;
+  background: var(--facture-accent);
+  border-radius: 999px;
+}
+
+.plan-card__title {
+  margin-bottom: 0.2rem;
+  font-size: 1.4rem;
+}
+
+.plan-card__who {
+  margin-bottom: 1rem;
+  color: #6b5b4d;
+  font-size: 0.95rem;
+}
+
+.plan-card__price {
+  margin-bottom: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--facture-primary-dark);
+}
+
+.plan-card__list {
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--facture-border);
+}
+
+.plan-card__list li {
+  position: relative;
+  padding: 0.25rem 0 0.25rem 1.6rem;
+}
+
+.plan-card__list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: var(--facture-accent);
+}
+
+/* Вопросы: отдельные плашки */
+.faq-list .accordion-item {
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--facture-border);
+  border-radius: var(--facture-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(90, 70, 50, 0.05);
+}
+
+.faq-list .accordion-button {
+  padding: 1.1rem 1.4rem;
+  font-size: 1.05rem;
+}
+
+.faq-list .accordion-button:not(.collapsed) {
+  box-shadow: none;
+  border-bottom: 1px dashed var(--facture-border);
+}
+
+.faq-list .accordion-body {
+  padding: 1.1rem 1.4rem 1.3rem;
+  color: #6b5b4d;
+}
+
+
+
+
+/* Форма «Бронь праздника» */
+.booking-modal .modal-content {
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(60, 40, 25, 0.25);
+  overflow: hidden;
+}
+
+.booking-modal .modal-header {
+  padding: 1.5rem 1.75rem 1.25rem;
+  background: linear-gradient(135deg, var(--facture-surface) 0%, #f3e6d6 100%);
+  border-bottom: 3px solid var(--facture-accent);
+}
+
+.booking-modal .modal-title {
+  font-size: 1.6rem;
+  color: var(--facture-primary-dark);
+}
+
+.booking-modal__sub {
+  font-size: 0.9rem;
+  color: #6b5b4d;
+}
+
+.booking-modal .modal-body {
+  padding: 1.5rem 1.75rem;
+  background: #fffdfa;
+}
+
+.booking-modal .form-label {
+  margin-bottom: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--facture-primary-dark);
+}
+
+.booking-modal .form-control,
+.booking-modal .form-select {
+  padding: 0.7rem 1rem;
+  background-color: #fff;
+  border: 1.5px solid var(--facture-border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.booking-modal .form-control:hover,
+.booking-modal .form-select:hover {
+  border-color: var(--facture-primary);
+}
+
+.booking-modal .form-control:focus,
+.booking-modal .form-select:focus {
+  border-color: var(--facture-accent);
+  box-shadow: 0 0 0 0.25rem rgba(201, 162, 39, 0.2);
+}
+
+.booking-modal__comment {
+  height: 7.5rem;
+  resize: none;
+  overflow-y: auto;
+}
+
+.booking-modal .form-check-input:checked {
+  background-color: var(--facture-primary);
+  border-color: var(--facture-primary);
+}
+
+.booking-modal .modal-footer {
+  padding: 1rem 1.75rem 1.5rem;
+  background: #fffdfa;
+  border-top: 0;
+}
+
+.booking-modal .modal-footer .btn { padding: 0.6rem 1.5rem; }
+
+
+
+/* Блок «Как нас найти» */
+.contact-card {
+  border: 1px solid var(--facture-border);
+  border-radius: var(--facture-radius);
+  box-shadow: 0 2px 10px rgba(90, 70, 50, 0.06);
+}
+
+.contact-card .card-body { padding: 1.75rem; }
+
+.contact-list dt {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--facture-primary-dark);
+}
+
+.contact-list dd {
+  margin: 0 0 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--facture-border);
+  font-size: 1.05rem;
+}
+
+.contact-list dd:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.map-frame {
+  min-height: 320px;
+  border: 1px solid var(--facture-border);
+  border-radius: var(--facture-radius);
+  box-shadow: 0 2px 10px rgba(90, 70, 50, 0.06);
+  overflow: hidden;
+}
+
+.map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border: 0;
 }

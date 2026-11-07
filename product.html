@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Подробное описание мастер-класса студии «Фактура».">
-  <title>Мастер-класс — Фактура</title>
+  <meta name="description" content="Отметьте день рождения в творческой мастерской «Фактура»: объёмные картины, чаепитие, все материалы включены.">
+  <title>День рождения в мастерской — Фактура</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,16 +32,7 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
           <li class="nav-item"><a class="nav-link" href="catalog.html">Мастер-классы</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#gallery">Галерея</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ещё</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="catalog.html">Все мастер-классы</a></li>
-              <li><a class="dropdown-item" href="product.html">О мастер-классе</a></li>
-              <li><a class="dropdown-item" href="index.html#popular">Популярное</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="order.html">Оформить запись</a></li>
-            </ul>
-          </li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="product.html">День рождения в мастерской</a></li>
         </ul>
         <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="order.html">Записаться</a>
       </div>
@@ -49,117 +40,298 @@
   </nav>
 </header>
 
-  <main class="container my-5">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
-        <li class="breadcrumb-item"><a href="catalog.html">Мастер-классы</a></li>
-        <li class="breadcrumb-item active" aria-current="page" id="p-crumb">Мастер-класс</li>
-      </ol>
-    </nav>
+<main class="container my-5">
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+    <li class="breadcrumb-item"><a href="catalog.html">Мастер-классы</a></li>
+    <li class="breadcrumb-item active" aria-current="page">День рождения в мастерской</li>
+    </ol>
+</nav>
 
-    <div class="row g-4">
-      <div class="col-12 col-lg-6">
-        <div class="card product-photo shadow-sm">
-          <img id="p-img" class="card-img-top" src="images/pic1.png" alt="">
-        </div>
-      </div>
-
-      <div class="col-12 col-lg-6">
-        <span class="badge rounded-pill product-card__badge--static mb-3" id="p-badge" hidden></span>
-        <h1 class="h2" id="p-title">Мастер-класс</h1>
-        <p class="lead text-muted" id="p-desc"></p>
-        <p class="fs-3 fw-bold product-price" id="p-price"></p>
-
-        <div class="d-flex flex-wrap gap-2 mb-4">
-          <a class="btn btn-primary btn-lg" id="p-order" href="order.html">Записаться на занятие</a>
-          <button class="btn btn-outline-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" id="p-quick">Быстрая заявка</button>
-        </div>
-
-        <div class="alert alert-info" role="alert">
-          Все материалы включены в стоимость. Готовую картину вы забираете домой в тот же день.
-        </div>
-        <a class="btn btn-link px-0" href="catalog.html">← Назад в каталог</a>
-      </div>
+<div class="row g-4">
+    <div class="col-12 col-lg-6">
+    <div class="card product-photo shadow-sm">
+        <img class="card-img-top" src="images/hb.png" alt="Гости студии рядом с готовыми объёмными картинами">
+    </div>
     </div>
 
-    <section class="mt-5">
-      <h2 class="h4 mb-3">Характеристики</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-bordered align-middle product-table">
-          <tbody>
-            <tr><th scope="row">Уровень</th><td id="t-level"></td></tr>
-            <tr><th scope="row">Длительность</th><td id="t-time"></td></tr>
-            <tr><th scope="row">Стоимость</th><td id="t-price"></td></tr>
-            <tr><th scope="row">Группа</th><td>до 6 человек</td></tr>
-            <tr><th scope="row">Ведёт</th><td id="t-teacher"></td></tr>
-            <tr><th scope="row">Что понадобится</th><td><ul class="mb-0 ps-3" id="t-materials"></ul></td></tr>
-          </tbody>
-        </table>
+    <div class="col-12 col-lg-6">
+    <span class="badge rounded-pill product-card__badge--static product-card__badge--hit mb-3">Новая услуга</span>
+    <h1 class="h2">День рождения в мастерской</h1>
+    <p class="lead text-muted">Праздник, после которого остаётся не фото в телефоне, а настоящая объёмная картина. Рисуем текстурной пастой, пьём чай и забираем работы домой.</p>
+    <p class="fs-3 fw-bold product-price">от 8 000 ₽</p>
+
+    <div class="d-flex flex-wrap gap-2 mb-4">
+        <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#orderModal">Забронировать праздник</button>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+        Бронируйте дату минимум за 5 дней. <br>
+        Перенос даты возможен не позднее чем за 2 дня.
+    </div>
+    </div>
+</div>
+
+<!-- Вкладки (Bootstrap nav-pills) -->
+<section class="mt-5">
+    <h2 class="h4 mb-3">Как проходит праздник</h2>
+    <ul class="nav nav-pills party-tabs mb-4" id="partyTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab-incl" data-bs-toggle="pill" data-bs-target="#pane-incl" type="button" role="tab" aria-controls="pane-incl" aria-selected="true">Что входит</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-plan" data-bs-toggle="pill" data-bs-target="#pane-plan" type="button" role="tab" aria-controls="pane-plan" aria-selected="false">Программа</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-terms" data-bs-toggle="pill" data-bs-target="#pane-terms" type="button" role="tab" aria-controls="pane-terms" aria-selected="false">Условия</button>
+    </li>
+    </ul>
+
+    <div class="tab-content" id="partyTabsContent">
+    <!-- Что входит -->
+    <div class="tab-pane fade show active" id="pane-incl" role="tabpanel" aria-labelledby="tab-incl" tabindex="0">
+        <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="party-item">
+            <span class="party-item__icon" aria-hidden="true">🎨</span>
+            <div><h3 class="party-item__title">Все материалы</h3><p class="party-item__text">Холст, текстурная паста, мастихины, акрил и поталь.</p></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="party-item">
+            <span class="party-item__icon" aria-hidden="true">👩‍🎨</span>
+            <div><h3 class="party-item__title">Куратор</h3><p class="party-item__text">Проведёт гостей по каждому шагу, опыт не нужен.</p></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="party-item">
+            <span class="party-item__icon" aria-hidden="true">🧑‍🍳</span>
+            <div><h3 class="party-item__title">Фартуки и зона</h3><p class="party-item__text">Отдельное пространство студии только для вашей компании.</p></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="party-item">
+            <span class="party-item__icon" aria-hidden="true">🍰</span>
+            <div><h3 class="party-item__title">Чаепитие</h3><p class="party-item__text">Чай, кофе и место для вашего торта.</p></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="party-item">
+            <span class="party-item__icon" aria-hidden="true">🖼️</span>
+            <div><h3 class="party-item__title">Картины с собой</h3><p class="party-item__text">Каждый гость забирает свою готовую работу.</p></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="party-item">
+            <span class="party-item__icon" aria-hidden="true">📸</span>
+            <div><h3 class="party-item__title">Общее фото</h3><p class="party-item__text">Фотография компании с готовыми картинами.</p></div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+        <!-- Программа -->
+        <div class="tab-pane fade" id="pane-plan" role="tabpanel" aria-labelledby="tab-plan" tabindex="0">
+          <ol class="party-steps list-unstyled mb-0">
+            <li class="party-step">
+              <span class="party-step__time">15 мин</span>
+              <div><h3 class="party-item__title">Встреча гостей</h3><p class="party-item__text">Фартуки, знакомство с материалами.</p></div>
+            </li>
+            <li class="party-step">
+              <span class="party-step__time">1-2 часа</span>
+              <div><h3 class="party-item__title">Создаём картину</h3><p class="party-item__text">Мастихин и текстурная паста под руководством куратора.</p></div>
+            </li>
+            <li class="party-step">
+              <span class="party-step__time">45 мин</span>
+              <div><h3 class="party-item__title">Чаепитие и торт</h3><p class="party-item__text">Пока работы подсыхают.</p></div>
+            </li>
+            <li class="party-step">
+              <span class="party-step__time">10 мин</span>
+              <div><h3 class="party-item__title">Общее фото</h3><p class="party-item__text">Все вместе с готовыми картинами.</p></div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Условия -->
+        <div class="tab-pane fade" id="pane-terms" role="tabpanel" aria-labelledby="tab-terms" tabindex="0">
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="party-item">
+                <span class="party-item__icon" aria-hidden="true">📅</span>
+                <div><h3 class="party-item__title">Бронирование</h3><p class="party-item__text">За 5 дней и более, предоплата 30 %.</p></div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="party-item">
+                <span class="party-item__icon" aria-hidden="true">🔁</span>
+                <div><h3 class="party-item__title">Перенос даты</h3><p class="party-item__text">Не позднее чем за 2 дня до праздника.</p></div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="party-item">
+                <span class="party-item__icon" aria-hidden="true">🎂</span>
+                <div><h3 class="party-item__title">Свой торт</h3><p class="party-item__text">Торт и напитки можно приносить с собой.</p></div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="party-item">
+                <span class="party-item__icon" aria-hidden="true">🧒</span>
+                <div><h3 class="party-item__title">Возраст</h3><p class="party-item__text">От 7 лет, до 12 лет с сопровождающим.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="mt-5">
-      <h2 class="h4 mb-3">Частые вопросы</h2>
-      <div class="accordion" id="faqAccordion">
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq0" aria-expanded="true" aria-controls="faq0">Нужен ли опыт, чтобы прийти на мастер-класс?</button>
-          </h3>
-          <div id="faq0" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">Нет. Мы показываем каждый шаг: подойдёт, даже если вы впервые держите мастихин.</div>
-          </div>
+<!-- Тарифы (card + badge) -->
+<section class="mt-5">
+    <h2 class="h4 mb-3">Выберите формат</h2>
+    <div class="row g-4">
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card plan-card h-100">
+        <div class="card-body d-flex flex-column">
+            <h3 class="plan-card__title">Камерный</h3>
+            <p class="plan-card__who">Для семьи и близких друзей</p>
+            <p class="plan-card__price">8 000 ₽</p>
+            <ul class="plan-card__list list-unstyled">
+            <li>до 4 гостей</li>
+            <li>2 часа</li>
+            <li>картина на выбор</li>
+            <li>чай и кофе</li>
+            </ul>
+            <button class="btn btn-outline-primary mt-auto" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tariff="small">Выбрать</button>
         </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">Нужно ли что-то брать с собой?</button>
-          </h3>
-          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">Нет, все материалы включены в стоимость. Одежду лучше выбрать такую, которую не жалко испачкать краской.</div>
-          </div>
         </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">Заберу ли я картину в тот же день?</button>
-          </h3>
-          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">Да, готовую работу вы забираете с собой в тот же день. Текстурная паста полностью высыхает около суток, поэтому до утра картину лучше держать горизонтально.</div>
-          </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card plan-card plan-card--featured h-100">
+        <span class="badge plan-card__badge">Хит</span>
+        <div class="card-body d-flex flex-column">
+            <h3 class="plan-card__title">Классический</h3>
+            <p class="plan-card__who">Для компании друзей</p>
+            <p class="plan-card__price">12 000 ₽</p>
+            <ul class="plan-card__list list-unstyled">
+            <li>до 6 гостей</li>
+            <li>3 часа</li>
+            <li>картина и поталь</li>
+            <li>чаепитие без спешки</li>
+            </ul>
+            <button class="btn btn-primary mt-auto" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tariff="classic">Выбрать</button>
         </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Как оплатить занятие?</button>
-          </h3>
-          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">Оплата происходит в студии. Онлайн достаточно оставить заявку, а мы подтвердим дату и время по телефону.</div>
-          </div>
         </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">Сколько человек в группе?</button>
-          </h3>
-          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">В группе до 6 человек, поэтому внимание уделяется каждому.</div>
-          </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card plan-card h-100">
+        <div class="card-body d-flex flex-column">
+            <h3 class="plan-card__title">Большая компания</h3>
+            <p class="plan-card__who">Для шумного праздника</p>
+            <p class="plan-card__price">16 000 ₽</p>
+            <ul class="plan-card__list list-unstyled">
+            <li>до 8 гостей</li>
+            <li>3,5 часа</li>
+            <li>две темы на выбор</li>
+            <li>общая фотосессия</li>
+            </ul>
+            <button class="btn btn-outline-primary mt-auto" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-tariff="big">Выбрать</button>
         </div>
-      </div>
-    </section>
-  </main>
+        </div>
+    </div>
+    </div>
+</section>
 
-  <!-- МОДАЛЬНОЕ ОКНО БЫСТРОЙ ЗАЯВКИ (Bootstrap modal) -->
-  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+<!-- Характеристики (table) -->
+<section class="mt-5">
+    <h2 class="h4 mb-3">Характеристики</h2>
+    <div class="spec-card table-responsive">
+    <table class="table table-hover align-middle mb-0 spec-table">
+        <thead>
+        <tr><th scope="col">Параметр</th><th scope="col">Значение</th></tr>
+        </thead>
+        <tbody>
+        <tr><th scope="row">Формат</th><td>Праздник в студии, отдельная зона</td></tr>
+        <tr><th scope="row">Длительность</th><td>2–3,5 часа</td></tr>
+        <tr><th scope="row">Гостей</th><td>от 4 до 8 человек</td></tr>
+        <tr><th scope="row">Возраст</th><td>от 7 лет</td></tr>
+        <tr><th scope="row">Стоимость</th><td class="spec-price">от 8 000 ₽</td></tr>
+        <tr><th scope="row">Ведёт</th><td>куратор студии «Фактура»</td></tr>
+        </tbody>
+    </table>
+    </div>
+</section>
+
+<!-- Частые вопросы (accordion) -->
+<section class="mt-5">
+    <h2 class="h4 mb-3">Частые вопросы</h2>
+    <div class="accordion faq-list" id="faqAccordion">
+    <div class="accordion-item">
+        <h3 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq0" aria-expanded="false" aria-controls="faq0">Нужен ли гостям опыт в рисовании?</button>
+        </h3>
+        <div id="faq0" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">Нет. Куратор показывает каждый шаг, подойдёт даже тем, кто впервые держит мастихин.</div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">Можно ли принести свой торт?</button>
+        </h3>
+        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">Да, торт, напитки и украшения можно принести с собой. Посуду и чай мы предоставим.</div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">Заберут ли гости картины в тот же день?</button>
+        </h3>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">Да. Текстурная паста полностью высыхает около суток, поэтому до утра картины лучше держать горизонтально.</div>
+        </div>
+    </div>
+        <div class="accordion-item">
+        <h3 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">Есть ли скидки?</button>
+        </h3>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">Да. В будние дни до 16:00 действует скидка 10 %. Для именинника мы предлагаем скидку 500 ₽ на любой формат, если бронь сделана за 14 дней и раньше. Скидки не суммируются.</div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Как забронировать и оплатить?</button>
+        </h3>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">Оставьте заявку, мы подтвердим дату по телефону. Предоплата 30 %, остаток оплачивается в студии.</div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">Сколько гостей можно пригласить?</button>
+        </h3>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">От 4 до 8 человек, в зависимости от выбранного формата.</div>
+        </div>
+    </div>
+    </div>
+</section>
+</main>
+
+  <div class="modal fade booking-modal" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title h5" id="orderModalLabel">Быстрая заявка</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        <div>
+            <h2 class="modal-title h5" id="orderModalLabel">Бронь праздника</h2>
+            <p class="booking-modal__sub mb-0">Оставьте заявку, и мы подтвердим дату по телефону</p>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
         </div>
         <div class="modal-body">
           <div class="alert alert-success d-none" id="modal-success" role="alert">
-            Спасибо! Заявка принята, мы свяжемся с вами и подтвердим запись.
+            Спасибо! Заявка принята, мы свяжемся с вами и подтвердим дату праздника.
           </div>
           <form id="modal-form" novalidate>
-            <p class="text-muted">Мастер-класс: <strong id="modal-product">—</strong></p>
             <div class="mb-3">
               <label for="modal-name" class="form-label">Имя *</label>
               <input id="modal-name" name="name" type="text" class="form-control" minlength="2" required>
@@ -170,6 +342,32 @@
               <input id="modal-phone" name="phone" type="tel" class="form-control" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
               <div class="invalid-feedback">Формат: +7 (900) 000-00-00</div>
             </div>
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-sm-7">
+                <label for="modal-tariff" class="form-label">Тариф *</label>
+                <select id="modal-tariff" name="tariff" class="form-select" required>
+                  <option value="" selected disabled>Выберите тариф</option>
+                  <option value="small">Камерный, 8 000 ₽</option>
+                  <option value="classic">Классический, 12 000 ₽</option>
+                  <option value="big">Большая компания, 16 000 ₽</option>
+                </select>
+                <div class="invalid-feedback">Выберите тариф</div>
+              </div>
+              <div class="col-12 col-sm-5">
+                <label for="modal-guests" class="form-label">Количество человек *</label>
+                <input id="modal-guests" name="guests" type="number" class="form-control" min="2" max="8" value="4" required>
+                <div class="invalid-feedback">От 2 до 8 человек</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="modal-date" class="form-label">Желаемая дата</label>
+              <input id="modal-date" name="date" type="date" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="modal-comment" class="form-label">Комментарий</label>
+              <textarea id="modal-comment" name="comment" class="form-control booking-modal__comment" rows="4" maxlength="300" placeholder="Тема картины, аллергии, сюрприз для именинника"></textarea>
+              <div class="form-text text-end"><span id="comment-count">0</span> / 300</div>
+            </div>
             <div class="form-check mb-1">
               <input id="modal-agree" class="form-check-input" type="checkbox" required>
               <label class="form-check-label" for="modal-agree">Согласен на обработку данных</label>
@@ -179,7 +377,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Закрыть</button>
-          <button type="submit" form="modal-form" class="btn btn-primary" id="modal-send">Отправить</button>
+          <button type="submit" form="modal-form" class="btn btn-primary" id="modal-send">Отправить заявку</button>
         </div>
       </div>
     </div>
@@ -218,7 +416,7 @@
           <a href="tel:+79000000000">+7 (900) 000-00-00</a>
         </div>
         <div class="footer-contact-item">
-          г. Москва, ул. Творческая, 15
+          г. Москва, Большой Златоустинский переулок, 3Ас2
         </div>
       </div>
 
@@ -240,7 +438,6 @@
   <button class="scroll-top" type="button" aria-label="Наверх">↑</button>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/scroll-top.js"></script>
-  <script src="js/product.js"></script>
   <script src="js/order-modal.js"></script>
 </body>
 </html>

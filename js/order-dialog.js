@@ -12,8 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /* при открытии подставляем название мастер-класса из кнопки */
   modalEl.addEventListener('show.bs.modal', (e) => {
     const btn = e.relatedTarget;
-    product.textContent = (btn && btn.dataset.mk) || '—';
+    if (product) product.textContent = (btn && btn.dataset.mk) || '—';
     form.reset();
+    const tariff = document.getElementById('modal-tariff');
+    if (tariff) tariff.value = (btn && btn.dataset.tariff) || '';
+    const date = document.getElementById('modal-date');
+    if (date) date.min = new Date().toISOString().slice(0, 10);
     form.classList.remove('was-validated');
     form.hidden = false;
     sendBtn.hidden = false;
@@ -33,6 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (d.length > 8) out += '-' + d.slice(8, 10);
     phone.value = d.length ? out : '';
   });
+
+  /* счётчик символов в комментарии */
+  const comment = document.getElementById('modal-comment');
+  const counter = document.getElementById('comment-count');
+  if (comment && counter) {
+    const upd = () => { counter.textContent = comment.value.length; };
+    comment.addEventListener('input', upd);
+    form.addEventListener('reset', () => setTimeout(upd));
+  }
 
   /* отправка с проверкой */
   form.addEventListener('submit', (e) => {
