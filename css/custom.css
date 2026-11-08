@@ -3153,3 +3153,171 @@ a:hover {
   min-height: 320px;
   border: 0;
 }
+
+
+/* ===== МОБИЛЬНАЯ ВЕРСИЯ ===== */
+
+/* единые боковые поля на странице «День рождения» */
+main.container {
+  padding-inline: 1.25rem;
+}
+
+@media (max-width: 991.98px) {
+  .hero__actions {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* главный экран */
+  .hero__text br { display: none; }
+
+  .hero__actions .btn {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .hero__facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 2rem;
+  }
+
+  .hero__facts li { padding: 0 0.6rem; }
+  .hero__facts strong { font-size: 1.5rem; }
+  .hero__facts span { font-size: 0.75rem; }
+
+  /* расписание: карточки вместо широкой таблицы */
+  .schedule-table,
+  .schedule-table tbody,
+  .schedule-table tr,
+  .schedule-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .schedule-table thead { display: none; }
+
+  .schedule-table tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.2rem 0.75rem;
+    align-items: center;
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid var(--facture-border);
+  }
+
+  .schedule-table tr:last-child { border-bottom: 0; }
+
+  .schedule-table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .schedule-table td:nth-child(1) {
+    grid-column: 1; grid-row: 1;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--facture-primary);
+  }
+
+  .schedule-table td:nth-child(4) {
+    grid-column: 2; grid-row: 1;
+    width: auto;
+    text-align: right;
+    font-weight: 700;
+    color: var(--facture-primary-dark);
+  }
+
+  .schedule-table td:nth-child(2) {
+    grid-column: 1 / -1; grid-row: 2;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .schedule-table td:nth-child(3) {
+    grid-column: 1; grid-row: 3;
+    color: var(--facture-muted);
+    font-size: 0.9rem;
+  }
+
+  .schedule-table td:nth-child(5) {
+    grid-column: 2; grid-row: 3;
+    width: auto;
+  }
+
+  /* популярные мастер-классы: 2 в ряд, компактно */
+  #popular .row { --bs-gutter-x: 0.75rem; --bs-gutter-y: 0.75rem; }
+
+  #popular .product-card .card-img-top {
+    width: calc(100% - 1rem);
+    margin: 0.5rem 0.5rem 0;
+    border-radius: 8px;
+  }
+
+  #popular .product-card .card-body { padding: 0.75rem; }
+
+  #popular .product-card .card-title {
+    font-size: 1.05rem;
+    line-height: 1.2;
+  }
+
+  #popular .product-card__description { display: none; }
+
+  #popular .product-card__meta { font-size: 0.75rem; }
+  #popular .product-card__price { font-size: 1rem; margin-bottom: 0.6rem; }
+
+  #popular .product-card__actions .btn {
+    width: 100%;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  #popular .badge.product-card__badge {
+    top: 0.9rem;
+    left: 0.9rem;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* техники: лента со свайпом */
+  #techniques .row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  #techniques .row::-webkit-scrollbar { display: none; }
+
+  #techniques .row > .col {
+    flex: 0 0 62%;
+    max-width: 62%;
+    scroll-snap-align: start;
+  }
+}
+
+/* преподаватели: лента со свайпом */
+@media (max-width: 767.98px) {
+  #teachers .row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  #teachers .row::-webkit-scrollbar { display: none; }
+
+  #teachers .row > [class*="col-"] {
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: start;
+  }
+}
