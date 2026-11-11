@@ -174,38 +174,101 @@
     </section>
   </main>
 
+  
   <footer class="site-footer">
-    <div class="footer-container row gx-0 gy-4">
-      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
-        <a href="index.html" class="footer-logo">Фактура</a>
-        <p class="footer-desc">Творческая студия объёмных картин. Мастер-классы по текстурной живописи, работа с пастой, мастихином и поталью.</p>
+  <div class="footer-container row gx-0 gy-4">
+
+    <!-- 1. Логотип и описание -->
+    <div class="footer-col col-12 col-lg-5 pe-lg-5 mb-4 mb-lg-0">
+      
+      <!-- Начало бежевой плашки -->
+      <div class="footer-brand-box">
+        <a class="site-header__logo" href="index.html" style="color: var(--facture-primary-dark);">
+          <span class="site-header__star">✦</span>Фактура
+        </a>
+        <p class="footer-desc mb-0">
+          Творческая студия объёмных картин. Мастер-классы по текстурной живописи, работа с пастой, мастихином и поталью.
+        </p>
       </div>
-      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
-        <h4>Навигация</h4>
-        <ul class="footer-list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Мастер-классы</a></li>
-          <li><a href="index.html#gallery">Галерея</a></li>
-          <li><a href="product.html">День рождения в мастерской</a></li>
-          <li><a href="order.html">Запись</a></li>
-        </ul>
-      </div>
-      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
-        <h4>Контакты</h4>
-        <div class="footer-contact-item"><a href="mailto:info@faktura.ru">info@faktura.ru</a></div>
-        <div class="footer-contact-item"><a href="tel:+79000000000">+7 (900) 000-00-00</a></div>
-        <div class="footer-contact-item">г. Москва, Большой Златоустинский переулок, 3Ас2</div>
-      </div>
-      <div class="footer-col col-12 col-md-6 col-lg-3 pe-lg-4">
-        <h4>Время работы</h4>
-        <div class="footer-contact-item">Ежедневно</div>
-        <div class="footer-contact-item">10:00 – 21:00</div>
-      </div>
+      <!-- Конец бежевой плашки -->
+
     </div>
-    <div class="footer-bottom">
-      <p style="margin: 0;">&copy; 2026 Студия «Фактура». Учебный проект. Все права защищены.</p>
+
+    <!-- 2. Навигация -->
+    <div class="footer-col col-6 col-lg-3">
+      <h4>Навигация</h4>
+      <ul class="footer-list">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Мастер-классы</a></li>
+        <li><a href="index.html#gallery">Галерея</a></li>
+        <li><a href="product.html">День рождения</a></li>
+      </ul>
     </div>
-  </footer>
+
+    <!-- 3. Контакты -->
+    <div class="footer-col col-6 col-lg-4">
+      <h4>Контакты</h4>
+      
+      <!-- Почта -->
+      <div class="footer-contact-item d-flex align-items-center gap-2 mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--facture-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <a href="mailto:info@faktura.ru">info@faktura.ru</a>
+      </div>
+
+      <!-- Телефон -->
+      <div class="footer-contact-item d-flex align-items-center gap-2 mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--facture-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <div>
+          <a href="tel:+79000000000" class="d-block">+7 (945) 571-39-62</a>
+          <small style="color: #a89b8f; font-size: 0.8rem; display: block; margin-top: 2px;">Приём звонков: 10:00 – 21:00</small>
+        </div>
+      </div>
+
+      <!-- Адрес -->
+      <div class="footer-contact-item d-flex align-items-start gap-2 mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--facture-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 4px;">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span>г. Москва, Большой Златоустинский переулок, 3Ас2</span>
+      </div>
+
+      <!-- Соцсети -->
+      <div class="footer-contact-item d-flex align-items-center gap-2 mb-3">
+        <a href="https://t.me/ваш_ник" target="_blank" rel="noopener" class="d-flex align-items-center gap-2" style="color: inherit; text-decoration: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--facture-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          <span>Telegram: texture.tg.com</span>
+        </a>
+      </div>
+
+      <div class="footer-contact-item d-flex align-items-center gap-2">
+        <a href="https://vk.com/ваша_страница" target="_blank" rel="noopener" class="d-flex align-items-center gap-2" style="color: inherit; text-decoration: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--facture-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10z"></path>
+            <path d="M7.5 8.5h2v4.5c0 1.5 1 2.5 2.5 2.5s2.5-1 2.5-2.5V8.5h2v4.5c0 2.5-1.8 4.5-4.5 4.5S7.5 15.5 7.5 13V8.5z"></path>
+            <path d="M14 8.5h3v2h-3z"></path>
+          </svg>
+          <span>ВКонтакте: texture.vk.com</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+      <!-- Нижняя строка с копирайтом -->
+      <div class="footer-bottom">
+        <p style="margin: 0;">&copy; 2026 Студия «Фактура». Учебный проект. Все права защищены.</p>
+      </div>
+    </footer>
 
   <button class="scroll-top" type="button" aria-label="Наверх">↑</button>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
