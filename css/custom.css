@@ -108,7 +108,7 @@ a:hover {
 }
 
 .site-header__logo:hover {
-  color: var(--facture-primary);
+  color: #c6aa96;
 }
 
 .site-header__logo:hover .site-header__star {
@@ -2333,11 +2333,6 @@ a:hover {
 }
 
 
-/* =====================================================
-   ПРАКТИКА 10: Bootstrap-компоненты в фирменных цветах
-   Цвета задаются через CSS-переменные самих компонентов
-   ===================================================== */
-
 /* ----- кнопки ----- */
 .btn {
   --bs-btn-padding-x: 1.4rem;
@@ -2492,6 +2487,33 @@ a:hover {
   }
 }
 
+
+/* ===== БЕЖЕВАЯ ПЛАШКА ДЛЯ ЛОГОТИПА В ПОДВАЛЕ ===== */
+.footer-brand-box {
+  background-color: var(--facture-bg); /* Бежевый цвет (как фон сайта) */
+  padding: 1.5rem 1.75rem; /* Внутренние отступы */
+  border-radius: var(--facture-radius); /* Скругление углов */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Легкая тень для объема */
+  display: inline-block; /* Чтобы плашка облегала контент, а не растягивалась на всю ширину */
+  max-width: 100%;
+}
+
+/* Настройка логотипа внутри плашки */
+.footer-brand-box .site-header__logo {
+  font-size: 1.8rem; /* Чуть крупнее, чем в шапке, чтобы выделялся */
+  margin-bottom: 1rem; /* Отступ до текста */
+  display: inline-block;
+}
+
+/* Настройка текста описания внутри плашки */
+.footer-brand-box .footer-desc {
+  color: var(--facture-muted); /* Приглушенный коричневый цвет для текста */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 100%; /* Позволяем тексту занимать нужную ширину */
+  margin: 0;
+}
+
 /* ----- card ----- */
 .card.product-card {
   --bs-card-border-color: var(--facture-border);
@@ -2504,8 +2526,8 @@ a:hover {
   width: calc(100% - 2.5rem);
   margin: 1.25rem 1.25rem 0;
   aspect-ratio: 4 / 3;
-  height: auto;          /* добавить */
-  flex-shrink: 0;        /* добавить */
+  height: auto;         
+  flex-shrink: 0;       
   object-fit: cover;
   border-radius: 10px;
   background: var(--facture-surface);
@@ -3362,4 +3384,11 @@ main.container {
   }
   .plan-strip::-webkit-scrollbar { display: none; }
   .plan-strip > * { flex: 0 0 80%; max-width: 80%; scroll-snap-align: center; }
+}
+
+/* Принудительно делаем логотип одинаковым везде */
+.site-header .navbar-brand,
+.footer-brand-box .site-header__logo {
+  font-size: 1.6rem !important; /* Задаем жесткий размер */
+  font-family: 'Cormorant Garamond', Georgia, serif; /* На всякий случай фиксируем шрифт */
 }
