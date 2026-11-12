@@ -33,9 +33,9 @@
       </button>
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
           <li class="nav-item"><a class="nav-link" href="catalog.html">Мастер-классы</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">Галерея</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="gallery.html">Галерея</a></li>
           <li class="nav-item"><a class="nav-link" href="product.html">День рождения в мастерской</a></li>
         </ul>
         <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="order.html">Записаться</a>
@@ -209,7 +209,15 @@
 <main>
         <!-- ГАЛЕРЕЯ -->
     <section class="section container" id="gallery">
-      <h2>Галерея работ</h2>
+
+      <div class="gallery-intro">
+        <p class="hero__eyebrow">✦ Работы наших гостей</p>
+        <blockquote class="gallery-quote">
+          <p>Здесь собраны картины, которые наши гости создали своими руками, и многие из них — впервые в жизни.</p>
+        </blockquote>
+        <p class="gallery-techs">Текстурная паста <span>·</span> Мастихин <span>·</span> Поталь <span>·</span> Песок <span>·</span> Акрил</p>
+      </div>
+      
       <div class="row row-cols-2 row-cols-lg-4 g-4 gallery-row">
 
         <div class="col"><figure class="gallery-item" tabindex="0" role="button"
@@ -308,6 +316,22 @@
           <figcaption>«Дюны», паста + песок — Ирина П.</figcaption>
         </figure></div>
       </div>
+            <ul class="gallery-stats">
+        <li><strong data-count="500" data-suffix="+">500+</strong><span>картин создали наши гости</span></li>
+        <li><strong data-count="8">8</strong><span>мастер-классов на выбор</span></li>
+        <li><strong>2–4 ч</strong><span>и картина готова</span></li>
+      </ul>
+
+      <div class="gallery-cta">
+        <div>
+          <h3>Хотите такую же?</h3>
+          <p>Выберите мастер-класс и приходите без опыта: всему научим на месте.</p>
+        </div>
+        <div class="gallery-cta__actions">
+          <a class="gallery-cta__btn" href="catalog.html">Смотреть мастер-классы</a>
+          <a class="gallery-cta__link" href="order.html">Записаться →</a>
+        </div>
+      </div>
     </section>
 </main>
 
@@ -345,13 +369,13 @@
     <div class="footer-col col-6 col-lg-4">
       <h4>Контакты</h4>
       
-      <!-- Почта -->
-      <div class="footer-contact-item d-flex align-items-center gap-2 mb-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--facture-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-          <polyline points="22,6 12,13 2,6"></polyline>
+      <!-- Адрес -->
+      <div class="footer-contact-item d-flex align-items-start gap-2 mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--facture-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 4px;">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
         </svg>
-        <a href="mailto:info@faktura.ru">info@faktura.ru</a>
+        <span>г. Москва, Большой Златоустинский переулок, 3Ас2</span>
       </div>
 
       <!-- Телефон -->
@@ -365,13 +389,13 @@
         </div>
       </div>
 
-      <!-- Адрес -->
-      <div class="footer-contact-item d-flex align-items-start gap-2 mb-4">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--facture-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 4px;">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
+      <!-- Почта -->
+      <div class="footer-contact-item d-flex align-items-center gap-2 mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--facture-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
-        <span>г. Москва, Большой Златоустинский переулок, 3Ас2</span>
+        <a href="mailto:info@faktura.ru">info@faktura.ru</a>
       </div>
 
       <!-- Соцсети -->
@@ -407,7 +431,9 @@
     </footer>
 
     <!-- Скрипт для кнопки наверх -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <button class="scroll-top" type="button" aria-label="Наверх" title="Наверх">✦</button>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/scroll-top.js"></script>
 
     <!-- Скрипт слайдера отзывов -->
@@ -418,5 +444,7 @@
     <script src="js/teachers.js"></script>
 
     <script src="js/order-dialog.js"></script>
+
+    <script src="js/counters.js"></script>
   </body>
 </html>
