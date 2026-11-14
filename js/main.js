@@ -51,3 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.btn-primary, .btn-outline-primary');
+  
+  // Применяем только на устройствах с мышкой
+  if (window.matchMedia("(pointer: fine)").matches) {
+    buttons.forEach(btn => {
+      btn.classList.add('btn-magnetic');
+
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        // Двигаем кнопку на 30% от положения курсора
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+      });
+    });
+  }
+});
+
+
+
+

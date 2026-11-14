@@ -57,3 +57,25 @@ document.addEventListener('DOMContentLoaded', () => {
     success.classList.remove('d-none');
   });
 });
+/* ===== ЗАКРЫТИЕ ЭКРАНА УСПЕХА ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  const dialog = document.getElementById('order-dialog');
+  const successCloseBtn = document.getElementById('success-close');
+
+  if (successCloseBtn && dialog) {
+    successCloseBtn.addEventListener('click', () => {
+      // 1. Закрываем само модальное окно
+      dialog.close();
+      
+      // 2. Убираем класс is-sent (чтобы в следующий раз показалась форма, а не экран успеха)
+      dialog.classList.remove('is-sent');
+      
+      // 3. Сбрасываем форму (очищаем поля)
+      const form = document.getElementById('order-form');
+      if (form) {
+        form.reset();
+        form.classList.remove('was-validated');
+      }
+    });
+  }
+});
