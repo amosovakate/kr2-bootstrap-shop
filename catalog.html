@@ -50,17 +50,25 @@
     </nav>
 
     <div class="container mt-4 mb-4" style="padding-inline: 1.25rem;">
-      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
         <div>
           <h1 class="page-title">Мастер-классы</h1>
           <p class="page-subtitle mb-0">Выберите занятие по уровню и технике. Все материалы включены в стоимость.</p>
         </div>
-        <a class="btn btn-outline-primary" href="order.html">Выбрать дату и время →</a>
+        <!-- ОБНОВЛЕННЫЙ БЛОК С КНОПКАМИ -->
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+          <button type="button" class="btn btn-random-mk" id="random-mk-btn">
+            <span class="btn-random-mk__icon" aria-hidden="true">🎲</span>
+            <span class="btn-random-mk__text">Не знаю, что выбрать</span>
+          </button>
+          <a class="btn btn-outline-primary" href="order.html">Выбрать дату и время →</a>
+        </div>
       </div>
       <div class="alert alert-info mb-0" role="alert">
         Подсказка: воспользуйтесь фильтрами слева, чтобы подобрать мастер-класс по уровню и цене.
       </div>
     </div>
+
 
     <section class="section container" style="padding-top: 0;">
       <div class="row g-4">
@@ -409,6 +417,40 @@
 
   </div>
 
+<dialog id="random-dialog" aria-labelledby="random-mk-heading">
+  <div class="random-mk__head">
+    <p class="random-mk__eyebrow">Судьба решит за вас</p>
+    <h2 class="random-mk__title" id="random-mk-heading">Ваш мастер-класс</h2>
+  </div>
+  
+  <!-- НОВАЯ ОБЕРТКА ДЛЯ ДВУХ КОЛОНОК -->
+  <div class="random-mk__layout">
+    
+    <!-- ЛЕВАЯ КОЛОНКА: Картинка -->
+    <div class="random-mk__image-wrapper">
+      <img class="random-mk__image" id="random-mk-image" src="" alt="">
+    </div>
+
+    <!-- ПРАВАЯ КОЛОНКА: Текст и кнопки -->
+    <div class="random-mk__content" id="random-mk-body">
+      <div>
+        <h3 class="random-mk__name" id="random-mk-name"></h3>
+        <p class="random-mk__meta" id="random-mk-meta"></p>
+        <p class="random-mk__desc" id="random-mk-desc"></p>
+        <p class="random-mk__price" id="random-mk-price"></p>
+      </div>
+      
+      <!-- Кнопки прижмутся к низу -->
+      <div class="random-mk__actions">
+        <a class="button button--primary" id="random-mk-book" href="#">Записаться</a>
+        <button type="button" class="button button--secondary" id="random-mk-again">Ещё раз 🎲</button>
+        <button type="button" class="button button--secondary" id="random-mk-close">Закрыть</button>
+      </div>
+    </div>
+    
+  </div>
+</dialog>
+
       <!-- Нижняя строка с копирайтом -->
       <div class="footer-bottom">
         <p style="margin: 0;">&copy; 2026 Студия «Фактура». Учебный проект. Все права защищены.</p>
@@ -418,7 +460,7 @@
   <button class="scroll-top" type="button" aria-label="Наверх" title="Наверх">✦</button>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/scroll-top.js"></script>
-  
+  <script src="js/random-class.js"></script>
   <script src="js/catalog.js"></script>
   <script src="js/order-modal.js"></script>
 </body>

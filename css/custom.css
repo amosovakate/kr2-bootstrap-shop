@@ -4090,3 +4090,187 @@ body, a, button, .gallery-item, .product-card {
     url('../images/cursor.png') 16x
   ) 2 2, auto;
 }
+
+/* ===== РАНДОМНЫЙ МАСТЕР-КЛАСС (2 КОЛОНКИ) ===== */
+#random-dialog {
+  max-width: 850px; /* Сделали окно шире */
+  width: 95%;
+  max-height: 90vh;
+  border: none;
+  border-radius: var(--facture-radius);
+  padding: 0;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(46, 42, 38, 0.35);
+  overflow: hidden; /* Убираем скролл самого окна */
+}
+
+#random-dialog::backdrop {
+  background: rgba(46, 42, 38, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* Шапка окна */
+.random-mk__head {
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, var(--facture-surface) 0%, #f3e6d6 100%);
+  border-bottom: 3px solid var(--facture-accent);
+}
+
+.random-mk__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--facture-accent);
+  margin-bottom: 0.4rem;
+}
+
+.random-mk__title {
+  font-size: 1.9rem;
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* Сетка из двух колонок */
+.random-mk__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Две равные колонки */
+  gap: 2rem;
+  padding: 2rem;
+  max-height: calc(90vh - 100px); /* Чтобы не вылезало за экран */
+  overflow-y: auto; /* Скролл, если текст будет очень длинным */
+}
+
+/* Левая колонка с картинкой */
+.random-mk__image-wrapper {
+  background: var(--facture-surface);
+  padding: 10px; 
+  border-radius: var(--facture-radius);
+  border: 1px solid var(--facture-border);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(107, 79, 58, 0.08);
+  height: 100%; /* Рамка растягивается на всю высоту */
+  display: flex;
+}
+
+.random-mk__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 350px; /* Чтобы картинка не была слишком плоской */
+  object-fit: cover;
+  border-radius: calc(var(--facture-radius) - 6px);
+  background: #fff;
+}
+
+/* Правая колонка с контентом */
+.random-mk__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Расталкивает текст и кнопки по краям */
+}
+
+.random-mk__name {
+  font-size: 1.8rem;
+  margin: 0 0 0.4rem;
+  line-height: 1.2;
+}
+
+.random-mk__meta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--facture-primary);
+  margin-bottom: 1rem;
+}
+
+.random-mk__desc {
+  color: var(--facture-muted);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.random-mk__price {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--facture-primary-dark);
+  margin-bottom: 2rem;
+}
+
+/* Кнопки */
+.random-mk__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.random-mk__actions .button {
+  flex: 1 1 auto;
+  text-align: center;
+  min-width: 120px;
+}
+
+/* Адаптив для мобильных (перестраиваем в одну колонку) */
+@media (max-width: 768px) {
+  .random-mk__layout {
+    grid-template-columns: 1fr; /* Одна колонка */
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .random-mk__image-wrapper {
+    height: auto;
+  }
+  
+  .random-mk__image {
+    height: 250px; /* Фиксируем высоту картинки на телефонах */
+    min-height: 0;
+  }
+}
+
+/* ===== КНОПКА «НЕ ЗНАЮ, ЧТО ВЫБРАТЬ» ===== */
+.btn-random-mk {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.4rem;
+  background: #fff;
+  border: 2px solid var(--facture-accent); /* Золотая рамка */
+  color: var(--facture-primary-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(201, 162, 39, 0.15); /* Легкая золотая тень */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Эффект при наведении */
+.btn-random-mk:hover {
+  background: var(--facture-accent);
+  color: #fff;
+  border-color: var(--facture-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(201, 162, 39, 0.3);
+}
+
+/* Иконка-кубик */
+.btn-random-mk__icon {
+  font-size: 1.2rem;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1.2);
+}
+
+/* Анимация кубика при наведении */
+.btn-random-mk:hover .btn-random-mk__icon {
+  transform: rotate(180deg) scale(1.1);
+}
+
+/* На мобильных делаем кнопку на всю ширину */
+@media (max-width: 575.98px) {
+  .btn-random-mk {
+    width: 100%;
+    justify-content: center;
+  }
+}
